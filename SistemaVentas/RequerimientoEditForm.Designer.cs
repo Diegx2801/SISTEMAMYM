@@ -30,11 +30,13 @@
         {
             this.lblTitulo = new System.Windows.Forms.Label();
             this.grpDatos = new System.Windows.Forms.GroupBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtObservacion = new System.Windows.Forms.TextBox();
             this.txtSolicitante = new System.Windows.Forms.TextBox();
             this.lblObservacion = new System.Windows.Forms.Label();
             this.lblSolicitante = new System.Windows.Forms.Label();
@@ -51,17 +53,17 @@
             this.txtTotalItems = new System.Windows.Forms.TextBox();
             this.lblTotalItems = new System.Windows.Forms.Label();
             this.dgvItems = new System.Windows.Forms.DataGridView();
-            this.idItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colObservacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlAcciones = new System.Windows.Forms.Panel();
             this.btnCierra = new System.Windows.Forms.Button();
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnInicio = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.idItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colObservacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpDatos.SuspendLayout();
             this.grpItems.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
@@ -81,11 +83,13 @@
             // 
             // grpDatos
             // 
+            this.grpDatos.Controls.Add(this.comboBox2);
+            this.grpDatos.Controls.Add(this.label6);
+            this.grpDatos.Controls.Add(this.dateTimePicker2);
             this.grpDatos.Controls.Add(this.textBox2);
             this.grpDatos.Controls.Add(this.comboBox1);
             this.grpDatos.Controls.Add(this.label3);
             this.grpDatos.Controls.Add(this.label2);
-            this.grpDatos.Controls.Add(this.txtObservacion);
             this.grpDatos.Controls.Add(this.txtSolicitante);
             this.grpDatos.Controls.Add(this.lblObservacion);
             this.grpDatos.Controls.Add(this.lblSolicitante);
@@ -97,6 +101,32 @@
             this.grpDatos.TabIndex = 8;
             this.grpDatos.TabStop = false;
             this.grpDatos.Text = "Datos de Requerimiento";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(76, 71);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(242, 21);
+            this.comboBox2.TabIndex = 15;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(13, 187);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(40, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Fecha:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(76, 187);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 13;
             // 
             // textBox2
             // 
@@ -112,7 +142,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(76, 109);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(114, 21);
+            this.comboBox1.Size = new System.Drawing.Size(242, 21);
             this.comboBox1.TabIndex = 10;
             // 
             // label3
@@ -134,15 +164,6 @@
             this.label2.Size = new System.Drawing.Size(33, 13);
             this.label2.TabIndex = 8;
             this.label2.Text = "Obra:";
-            // 
-            // txtObservacion
-            // 
-            this.txtObservacion.Location = new System.Drawing.Point(76, 68);
-            this.txtObservacion.Margin = new System.Windows.Forms.Padding(2);
-            this.txtObservacion.Name = "txtObservacion";
-            this.txtObservacion.Size = new System.Drawing.Size(242, 20);
-            this.txtObservacion.TabIndex = 7;
-            this.txtObservacion.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // txtSolicitante
             // 
@@ -230,7 +251,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(64, 73);
+            this.textBox1.Location = new System.Drawing.Point(69, 73);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(77, 20);
@@ -297,7 +318,7 @@
             this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idItem,
-            this.colItem,
+            this.colMaterial,
             this.colUnidad,
             this.colCantidad,
             this.colObservacion});
@@ -308,39 +329,6 @@
             this.dgvItems.RowTemplate.Height = 24;
             this.dgvItems.Size = new System.Drawing.Size(499, 423);
             this.dgvItems.TabIndex = 5;
-            // 
-            // idItem
-            // 
-            this.idItem.HeaderText = "ID";
-            this.idItem.Name = "idItem";
-            // 
-            // colItem
-            // 
-            this.colItem.HeaderText = "Item";
-            this.colItem.MinimumWidth = 6;
-            this.colItem.Name = "colItem";
-            this.colItem.Width = 125;
-            // 
-            // colUnidad
-            // 
-            this.colUnidad.HeaderText = "Unidad Medida";
-            this.colUnidad.MinimumWidth = 6;
-            this.colUnidad.Name = "colUnidad";
-            this.colUnidad.Width = 70;
-            // 
-            // colCantidad
-            // 
-            this.colCantidad.HeaderText = "Cantidad";
-            this.colCantidad.MinimumWidth = 6;
-            this.colCantidad.Name = "colCantidad";
-            this.colCantidad.Width = 70;
-            // 
-            // colObservacion
-            // 
-            this.colObservacion.HeaderText = "Observación";
-            this.colObservacion.MinimumWidth = 6;
-            this.colObservacion.Name = "colObservacion";
-            this.colObservacion.Width = 125;
             // 
             // pnlAcciones
             // 
@@ -405,6 +393,39 @@
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = true;
             // 
+            // idItem
+            // 
+            this.idItem.HeaderText = "ID";
+            this.idItem.Name = "idItem";
+            // 
+            // colMaterial
+            // 
+            this.colMaterial.HeaderText = "Material";
+            this.colMaterial.MinimumWidth = 6;
+            this.colMaterial.Name = "colMaterial";
+            this.colMaterial.Width = 125;
+            // 
+            // colUnidad
+            // 
+            this.colUnidad.HeaderText = "Unidad Medida";
+            this.colUnidad.MinimumWidth = 6;
+            this.colUnidad.Name = "colUnidad";
+            this.colUnidad.Width = 70;
+            // 
+            // colCantidad
+            // 
+            this.colCantidad.HeaderText = "Cantidad";
+            this.colCantidad.MinimumWidth = 6;
+            this.colCantidad.Name = "colCantidad";
+            this.colCantidad.Width = 70;
+            // 
+            // colObservacion
+            // 
+            this.colObservacion.HeaderText = "Observación";
+            this.colObservacion.MinimumWidth = 6;
+            this.colObservacion.Name = "colObservacion";
+            this.colObservacion.Width = 125;
+            // 
             // RequerimientoEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -435,7 +456,6 @@
 
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.GroupBox grpDatos;
-        private System.Windows.Forms.TextBox txtObservacion;
         private System.Windows.Forms.TextBox txtSolicitante;
         private System.Windows.Forms.Label lblObservacion;
         private System.Windows.Forms.Label lblSolicitante;
@@ -462,8 +482,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.DataGridViewTextBoxColumn idItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMaterial;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUnidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn colObservacion;

@@ -44,7 +44,9 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.colNpedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colObra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequerimientos)).BeginInit();
@@ -67,6 +69,7 @@
             this.dgvRequerimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRequerimientos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colNpedido,
+            this.colObra,
             this.colFecha,
             this.colEstado});
             this.dgvRequerimientos.Location = new System.Drawing.Point(12, 173);
@@ -222,12 +225,27 @@
             this.label1.TabIndex = 52;
             this.label1.Text = "Bandeja Orden de Salida";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(698, 114);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(91, 38);
+            this.button2.TabIndex = 59;
+            this.button2.Text = "Registrar Orden Salida";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // colNpedido
             // 
             this.colNpedido.HeaderText = "N° Pedido";
             this.colNpedido.MinimumWidth = 6;
             this.colNpedido.Name = "colNpedido";
             this.colNpedido.Width = 80;
+            // 
+            // colObra
+            // 
+            this.colObra.HeaderText = "Obra";
+            this.colObra.Name = "colObra";
             // 
             // colFecha
             // 
@@ -248,6 +266,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 588);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvRequerimientos);
             this.Controls.Add(this.grpFiltros);
@@ -283,7 +302,9 @@
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNpedido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colObra;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
     }

@@ -41,12 +41,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvRequerimientos = new System.Windows.Forms.DataGridView();
-            this.colNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colObra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSolicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colItems = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnProv = new System.Windows.Forms.Button();
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnInicio = new System.Windows.Forms.Button();
@@ -55,6 +49,13 @@
             this.btnEnviarCompras = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.colNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colObra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSolicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colObservacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colItems = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequerimientos)).BeginInit();
             this.SuspendLayout();
@@ -113,9 +114,9 @@
             this.lblEstado.Location = new System.Drawing.Point(311, 24);
             this.lblEstado.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(46, 13);
+            this.lblEstado.Size = new System.Drawing.Size(43, 13);
             this.lblEstado.TabIndex = 17;
-            this.lblEstado.Text = "Estado :";
+            this.lblEstado.Text = "Estado:";
             // 
             // txtBuscar
             // 
@@ -193,6 +194,7 @@
             this.colFecha,
             this.colSolicitante,
             this.colEstado,
+            this.colObservacion,
             this.colItems});
             this.dgvRequerimientos.Location = new System.Drawing.Point(22, 157);
             this.dgvRequerimientos.Margin = new System.Windows.Forms.Padding(2);
@@ -201,48 +203,6 @@
             this.dgvRequerimientos.RowTemplate.Height = 24;
             this.dgvRequerimientos.Size = new System.Drawing.Size(885, 401);
             this.dgvRequerimientos.TabIndex = 22;
-            // 
-            // colNum
-            // 
-            this.colNum.HeaderText = "N° Req";
-            this.colNum.MinimumWidth = 6;
-            this.colNum.Name = "colNum";
-            this.colNum.Width = 80;
-            // 
-            // colObra
-            // 
-            this.colObra.HeaderText = "Obra";
-            this.colObra.MinimumWidth = 6;
-            this.colObra.Name = "colObra";
-            this.colObra.Width = 160;
-            // 
-            // colFecha
-            // 
-            this.colFecha.HeaderText = "Fecha";
-            this.colFecha.MinimumWidth = 6;
-            this.colFecha.Name = "colFecha";
-            this.colFecha.Width = 135;
-            // 
-            // colSolicitante
-            // 
-            this.colSolicitante.HeaderText = "Solicitante";
-            this.colSolicitante.MinimumWidth = 6;
-            this.colSolicitante.Name = "colSolicitante";
-            this.colSolicitante.Width = 150;
-            // 
-            // colEstado
-            // 
-            this.colEstado.HeaderText = "Estado";
-            this.colEstado.MinimumWidth = 6;
-            this.colEstado.Name = "colEstado";
-            this.colEstado.Width = 125;
-            // 
-            // colItems
-            // 
-            this.colItems.HeaderText = "Ítems";
-            this.colItems.MinimumWidth = 6;
-            this.colItems.Name = "colItems";
-            this.colItems.Width = 60;
             // 
             // btnProv
             // 
@@ -325,6 +285,53 @@
             this.label4.TabIndex = 33;
             this.label4.Text = "Bandeja de Requerimiento de Compras";
             // 
+            // colNum
+            // 
+            this.colNum.HeaderText = "N° Req";
+            this.colNum.MinimumWidth = 6;
+            this.colNum.Name = "colNum";
+            this.colNum.Width = 80;
+            // 
+            // colObra
+            // 
+            this.colObra.HeaderText = "Obra";
+            this.colObra.MinimumWidth = 6;
+            this.colObra.Name = "colObra";
+            this.colObra.Width = 160;
+            // 
+            // colFecha
+            // 
+            this.colFecha.HeaderText = "Fecha";
+            this.colFecha.MinimumWidth = 6;
+            this.colFecha.Name = "colFecha";
+            this.colFecha.Width = 135;
+            // 
+            // colSolicitante
+            // 
+            this.colSolicitante.HeaderText = "Solicitante";
+            this.colSolicitante.MinimumWidth = 6;
+            this.colSolicitante.Name = "colSolicitante";
+            this.colSolicitante.Width = 150;
+            // 
+            // colEstado
+            // 
+            this.colEstado.HeaderText = "Estado";
+            this.colEstado.MinimumWidth = 6;
+            this.colEstado.Name = "colEstado";
+            this.colEstado.Width = 125;
+            // 
+            // colObservacion
+            // 
+            this.colObservacion.HeaderText = "Observacion";
+            this.colObservacion.Name = "colObservacion";
+            // 
+            // colItems
+            // 
+            this.colItems.HeaderText = "Ítems";
+            this.colItems.MinimumWidth = 6;
+            this.colItems.Name = "colItems";
+            this.colItems.Width = 60;
+            // 
             // RequerimientosCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -372,12 +379,13 @@
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn colObra;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSolicitante;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colObservacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn colItems;
-        private System.Windows.Forms.Label label4;
     }
 }

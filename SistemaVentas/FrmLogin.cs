@@ -61,8 +61,6 @@ namespace SistemaVentas
                         destino = new BandejaRequerimientosForm();
                     else if (Sesion.EsProveedor)
                         destino = new MantenedorProveedor();
-                    else if (Sesion.EsDistribuidor)
-                        destino = new MantenedorDistribuidor();
                     else
                     {
                         MessageBox.Show("Tu rol no tiene una pantalla inicial asignada.");

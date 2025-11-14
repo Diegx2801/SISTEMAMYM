@@ -41,6 +41,7 @@
             this.colFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSolicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrioridad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colObservacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colItems = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -152,6 +153,7 @@
             this.colFecha,
             this.colSolicitante,
             this.colPrioridad,
+            this.colObservacion,
             this.colItems});
             this.dgvRequerimientos.Location = new System.Drawing.Point(26, 126);
             this.dgvRequerimientos.Margin = new System.Windows.Forms.Padding(2);
@@ -195,6 +197,11 @@
             this.colPrioridad.MinimumWidth = 6;
             this.colPrioridad.Name = "colPrioridad";
             this.colPrioridad.Width = 125;
+            // 
+            // colObservacion
+            // 
+            this.colObservacion.HeaderText = "Observacion";
+            this.colObservacion.Name = "colObservacion";
             // 
             // colItems
             // 
@@ -352,9 +359,9 @@
             this.label4.Location = new System.Drawing.Point(306, 0);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(388, 26);
+            this.label4.Size = new System.Drawing.Size(349, 26);
             this.label4.TabIndex = 25;
-            this.label4.Text = "Bandeja de Requerimientos de Compra";
+            this.label4.Text = "Atender Requerimiento de Compra";
             // 
             // BandejaRequerimientosForm
             // 
@@ -404,12 +411,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn colObra;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSolicitante;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrioridad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colObservacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn colItems;
-        private System.Windows.Forms.Label label4;
     }
 }

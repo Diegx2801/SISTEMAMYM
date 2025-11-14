@@ -30,12 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.dgvItems = new System.Windows.Forms.DataGridView();
-            this.idItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colObservacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grupBoxDatos = new System.Windows.Forms.GroupBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -47,6 +41,14 @@
             this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.lblTotalItems = new System.Windows.Forms.Label();
             this.txtTotalItems = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.idItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colObservacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             this.grupBoxDatos.SuspendLayout();
             this.SuspendLayout();
@@ -67,8 +69,8 @@
             this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idItem,
-            this.Codigo,
-            this.colItem,
+            this.colCodigo,
+            this.colMaterial,
             this.colUnidad,
             this.colCantidad,
             this.colObservacion});
@@ -80,46 +82,10 @@
             this.dgvItems.Size = new System.Drawing.Size(633, 344);
             this.dgvItems.TabIndex = 47;
             // 
-            // idItem
-            // 
-            this.idItem.HeaderText = "ID";
-            this.idItem.Name = "idItem";
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Código";
-            this.Codigo.Name = "Codigo";
-            // 
-            // colItem
-            // 
-            this.colItem.HeaderText = "Item";
-            this.colItem.MinimumWidth = 6;
-            this.colItem.Name = "colItem";
-            this.colItem.Width = 125;
-            // 
-            // colUnidad
-            // 
-            this.colUnidad.HeaderText = "Unidad Medida";
-            this.colUnidad.MinimumWidth = 6;
-            this.colUnidad.Name = "colUnidad";
-            this.colUnidad.Width = 70;
-            // 
-            // colCantidad
-            // 
-            this.colCantidad.HeaderText = "Cantidad";
-            this.colCantidad.MinimumWidth = 6;
-            this.colCantidad.Name = "colCantidad";
-            this.colCantidad.Width = 70;
-            // 
-            // colObservacion
-            // 
-            this.colObservacion.HeaderText = "Observación";
-            this.colObservacion.MinimumWidth = 6;
-            this.colObservacion.Name = "colObservacion";
-            this.colObservacion.Width = 125;
-            // 
             // grupBoxDatos
             // 
+            this.grupBoxDatos.Controls.Add(this.label4);
+            this.grupBoxDatos.Controls.Add(this.textBox1);
             this.grupBoxDatos.Controls.Add(this.dateTimePicker1);
             this.grupBoxDatos.Controls.Add(this.textBox2);
             this.grupBoxDatos.Controls.Add(this.label2);
@@ -137,14 +103,14 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(121, 68);
+            this.dateTimePicker1.Location = new System.Drawing.Point(120, 78);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 38;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(121, 99);
+            this.textBox2.Location = new System.Drawing.Point(120, 109);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(199, 20);
@@ -153,7 +119,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 102);
+            this.label2.Location = new System.Drawing.Point(5, 112);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 13);
             this.label2.TabIndex = 36;
@@ -180,7 +146,7 @@
             // lblRazonSocial
             // 
             this.lblRazonSocial.AutoSize = true;
-            this.lblRazonSocial.Location = new System.Drawing.Point(6, 41);
+            this.lblRazonSocial.Location = new System.Drawing.Point(5, 22);
             this.lblRazonSocial.Name = "lblRazonSocial";
             this.lblRazonSocial.Size = new System.Drawing.Size(103, 13);
             this.lblRazonSocial.TabIndex = 9;
@@ -189,7 +155,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 74);
+            this.label3.Location = new System.Drawing.Point(5, 84);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 10;
@@ -197,7 +163,7 @@
             // 
             // txtRazonSocial
             // 
-            this.txtRazonSocial.Location = new System.Drawing.Point(122, 38);
+            this.txtRazonSocial.Location = new System.Drawing.Point(121, 19);
             this.txtRazonSocial.Name = "txtRazonSocial";
             this.txtRazonSocial.Size = new System.Drawing.Size(199, 20);
             this.txtRazonSocial.TabIndex = 14;
@@ -219,6 +185,61 @@
             this.txtTotalItems.Name = "txtTotalItems";
             this.txtTotalItems.Size = new System.Drawing.Size(73, 20);
             this.txtTotalItems.TabIndex = 49;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(121, 49);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(199, 20);
+            this.textBox1.TabIndex = 39;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 50);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(33, 13);
+            this.label4.TabIndex = 40;
+            this.label4.Text = "Obra:";
+            // 
+            // idItem
+            // 
+            this.idItem.HeaderText = "ID";
+            this.idItem.Name = "idItem";
+            // 
+            // colCodigo
+            // 
+            this.colCodigo.HeaderText = "Código";
+            this.colCodigo.Name = "colCodigo";
+            // 
+            // colMaterial
+            // 
+            this.colMaterial.HeaderText = "Material";
+            this.colMaterial.MinimumWidth = 6;
+            this.colMaterial.Name = "colMaterial";
+            this.colMaterial.Width = 125;
+            // 
+            // colUnidad
+            // 
+            this.colUnidad.HeaderText = "Unidad Medida";
+            this.colUnidad.MinimumWidth = 6;
+            this.colUnidad.Name = "colUnidad";
+            this.colUnidad.Width = 70;
+            // 
+            // colCantidad
+            // 
+            this.colCantidad.HeaderText = "Cantidad";
+            this.colCantidad.MinimumWidth = 6;
+            this.colCantidad.Name = "colCantidad";
+            this.colCantidad.Width = 70;
+            // 
+            // colObservacion
+            // 
+            this.colObservacion.HeaderText = "Observación";
+            this.colObservacion.MinimumWidth = 6;
+            this.colObservacion.Name = "colObservacion";
+            this.colObservacion.Width = 125;
             // 
             // OrdenSalida
             // 
@@ -255,9 +276,11 @@
         private System.Windows.Forms.TextBox txtRazonSocial;
         private System.Windows.Forms.Label lblTotalItems;
         private System.Windows.Forms.TextBox txtTotalItems;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMaterial;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUnidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn colObservacion;
