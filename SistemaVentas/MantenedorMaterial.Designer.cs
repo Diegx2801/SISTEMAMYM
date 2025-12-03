@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.grupBoxDatos = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.groupBoxDatos = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtMaterialID = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.txtStock = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.cboProveedor = new System.Windows.Forms.ComboBox();
+            this.cboMarca = new System.Windows.Forms.ComboBox();
+            this.cboTipoMaterial = new System.Windows.Forms.ComboBox();
+            this.txtUnidadMedida = new System.Windows.Forms.TextBox();
             this.lblTelefono = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -45,127 +47,133 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblRazonSocial = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtRazonSocial = new System.Windows.Forms.TextBox();
-            this.cbkEstadoMaterial = new System.Windows.Forms.CheckBox();
+            this.txtMaterial = new System.Windows.Forms.TextBox();
+            this.chkEstado = new System.Windows.Forms.CheckBox();
             this.lblCorreo = new System.Windows.Forms.Label();
             this.btnDeshabilitar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.dgvProv = new System.Windows.Forms.DataGridView();
-            this.idMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvMaterial = new System.Windows.Forms.DataGridView();
             this.btnAgregarMarca = new System.Windows.Forms.Button();
             this.btnAgregarTipoMaterial = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.grupBoxDatos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProv)).BeginInit();
+            this.groupBoxDatos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).BeginInit();
             this.SuspendLayout();
             // 
-            // grupBoxDatos
+            // groupBoxDatos
             // 
-            this.grupBoxDatos.Controls.Add(this.label5);
-            this.grupBoxDatos.Controls.Add(this.txtCodigo);
-            this.grupBoxDatos.Controls.Add(this.textBox3);
-            this.grupBoxDatos.Controls.Add(this.label4);
-            this.grupBoxDatos.Controls.Add(this.textBox2);
-            this.grupBoxDatos.Controls.Add(this.label2);
-            this.grupBoxDatos.Controls.Add(this.comboBox3);
-            this.grupBoxDatos.Controls.Add(this.comboBox2);
-            this.grupBoxDatos.Controls.Add(this.comboBox1);
-            this.grupBoxDatos.Controls.Add(this.txtDireccion);
-            this.grupBoxDatos.Controls.Add(this.lblTelefono);
-            this.grupBoxDatos.Controls.Add(this.label8);
-            this.grupBoxDatos.Controls.Add(this.btnAgregar);
-            this.grupBoxDatos.Controls.Add(this.btnModificar);
-            this.grupBoxDatos.Controls.Add(this.btnCancelar);
-            this.grupBoxDatos.Controls.Add(this.label1);
-            this.grupBoxDatos.Controls.Add(this.lblRazonSocial);
-            this.grupBoxDatos.Controls.Add(this.label3);
-            this.grupBoxDatos.Controls.Add(this.txtRazonSocial);
-            this.grupBoxDatos.Controls.Add(this.cbkEstadoMaterial);
-            this.grupBoxDatos.Controls.Add(this.lblCorreo);
-            this.grupBoxDatos.Location = new System.Drawing.Point(12, 303);
-            this.grupBoxDatos.Name = "grupBoxDatos";
-            this.grupBoxDatos.Size = new System.Drawing.Size(1081, 272);
-            this.grupBoxDatos.TabIndex = 38;
-            this.grupBoxDatos.TabStop = false;
+            this.groupBoxDatos.Controls.Add(this.label6);
+            this.groupBoxDatos.Controls.Add(this.txtMaterialID);
+            this.groupBoxDatos.Controls.Add(this.label5);
+            this.groupBoxDatos.Controls.Add(this.txtCodigo);
+            this.groupBoxDatos.Controls.Add(this.txtStock);
+            this.groupBoxDatos.Controls.Add(this.label4);
+            this.groupBoxDatos.Controls.Add(this.cboProveedor);
+            this.groupBoxDatos.Controls.Add(this.cboMarca);
+            this.groupBoxDatos.Controls.Add(this.cboTipoMaterial);
+            this.groupBoxDatos.Controls.Add(this.txtUnidadMedida);
+            this.groupBoxDatos.Controls.Add(this.lblTelefono);
+            this.groupBoxDatos.Controls.Add(this.label8);
+            this.groupBoxDatos.Controls.Add(this.btnAgregar);
+            this.groupBoxDatos.Controls.Add(this.btnModificar);
+            this.groupBoxDatos.Controls.Add(this.btnCancelar);
+            this.groupBoxDatos.Controls.Add(this.label1);
+            this.groupBoxDatos.Controls.Add(this.lblRazonSocial);
+            this.groupBoxDatos.Controls.Add(this.label3);
+            this.groupBoxDatos.Controls.Add(this.txtMaterial);
+            this.groupBoxDatos.Controls.Add(this.chkEstado);
+            this.groupBoxDatos.Controls.Add(this.lblCorreo);
+            this.groupBoxDatos.Location = new System.Drawing.Point(12, 303);
+            this.groupBoxDatos.Name = "groupBoxDatos";
+            this.groupBoxDatos.Size = new System.Drawing.Size(1081, 272);
+            this.groupBoxDatos.TabIndex = 38;
+            this.groupBoxDatos.TabStop = false;
             // 
-            // textBox3
+            // label6
             // 
-            this.textBox3.Location = new System.Drawing.Point(629, 100);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(199, 20);
-            this.textBox3.TabIndex = 39;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(5, 51);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(18, 13);
+            this.label6.TabIndex = 42;
+            this.label6.Text = "ID";
+            // 
+            // txtMaterialID
+            // 
+            this.txtMaterialID.Location = new System.Drawing.Point(108, 48);
+            this.txtMaterialID.Name = "txtMaterialID";
+            this.txtMaterialID.Size = new System.Drawing.Size(199, 20);
+            this.txtMaterialID.TabIndex = 43;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(5, 82);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.TabIndex = 40;
+            this.label5.Text = "Código";
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Location = new System.Drawing.Point(108, 79);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(199, 20);
+            this.txtCodigo.TabIndex = 41;
+            // 
+            // txtStock
+            // 
+            this.txtStock.Location = new System.Drawing.Point(581, 48);
+            this.txtStock.Multiline = true;
+            this.txtStock.Name = "txtStock";
+            this.txtStock.Size = new System.Drawing.Size(199, 20);
+            this.txtStock.TabIndex = 39;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(530, 103);
+            this.label4.Location = new System.Drawing.Point(482, 51);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 38;
             this.label4.Text = "Stock:";
             // 
-            // textBox2
+            // cboProveedor
             // 
-            this.textBox2.Location = new System.Drawing.Point(629, 133);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(199, 20);
-            this.textBox2.TabIndex = 37;
+            this.cboProveedor.FormattingEnabled = true;
+            this.cboProveedor.Location = new System.Drawing.Point(108, 204);
+            this.cboProveedor.Name = "cboProveedor";
+            this.cboProveedor.Size = new System.Drawing.Size(199, 21);
+            this.cboProveedor.TabIndex = 34;
             // 
-            // label2
+            // cboMarca
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(529, 135);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 13);
-            this.label2.TabIndex = 36;
-            this.label2.Text = "Observaciones:";
+            this.cboMarca.FormattingEnabled = true;
+            this.cboMarca.Location = new System.Drawing.Point(108, 175);
+            this.cboMarca.Name = "cboMarca";
+            this.cboMarca.Size = new System.Drawing.Size(199, 21);
+            this.cboMarca.TabIndex = 33;
             // 
-            // comboBox3
+            // cboTipoMaterial
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(109, 185);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(199, 21);
-            this.comboBox3.TabIndex = 34;
+            this.cboTipoMaterial.FormattingEnabled = true;
+            this.cboTipoMaterial.Location = new System.Drawing.Point(108, 143);
+            this.cboTipoMaterial.Name = "cboTipoMaterial";
+            this.cboTipoMaterial.Size = new System.Drawing.Size(199, 21);
+            this.cboTipoMaterial.TabIndex = 32;
             // 
-            // comboBox2
+            // txtUnidadMedida
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(109, 156);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(199, 21);
-            this.comboBox2.TabIndex = 33;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(109, 124);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(199, 21);
-            this.comboBox1.TabIndex = 32;
-            // 
-            // txtDireccion
-            // 
-            this.txtDireccion.Location = new System.Drawing.Point(109, 217);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(199, 20);
-            this.txtDireccion.TabIndex = 30;
+            this.txtUnidadMedida.Location = new System.Drawing.Point(108, 236);
+            this.txtUnidadMedida.Name = "txtUnidadMedida";
+            this.txtUnidadMedida.Size = new System.Drawing.Size(199, 20);
+            this.txtUnidadMedida.TabIndex = 30;
             // 
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(6, 164);
+            this.lblTelefono.Location = new System.Drawing.Point(5, 183);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(40, 13);
             this.lblTelefono.TabIndex = 27;
@@ -174,7 +182,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 220);
+            this.label8.Location = new System.Drawing.Point(5, 239);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(97, 13);
             this.label8.TabIndex = 28;
@@ -188,6 +196,7 @@
             this.btnAgregar.TabIndex = 5;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
@@ -197,6 +206,7 @@
             this.btnModificar.TabIndex = 3;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnCancelar
             // 
@@ -206,6 +216,7 @@
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // label1
             // 
@@ -219,42 +230,42 @@
             // lblRazonSocial
             // 
             this.lblRazonSocial.AutoSize = true;
-            this.lblRazonSocial.Location = new System.Drawing.Point(6, 95);
+            this.lblRazonSocial.Location = new System.Drawing.Point(5, 114);
             this.lblRazonSocial.Name = "lblRazonSocial";
-            this.lblRazonSocial.Size = new System.Drawing.Size(63, 13);
+            this.lblRazonSocial.Size = new System.Drawing.Size(44, 13);
             this.lblRazonSocial.TabIndex = 9;
-            this.lblRazonSocial.Text = "Descripción";
+            this.lblRazonSocial.Text = "Material";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 127);
+            this.label3.Location = new System.Drawing.Point(5, 146);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 13);
             this.label3.TabIndex = 10;
             this.label3.Text = "Tipo de Material:";
             // 
-            // txtRazonSocial
+            // txtMaterial
             // 
-            this.txtRazonSocial.Location = new System.Drawing.Point(109, 92);
-            this.txtRazonSocial.Name = "txtRazonSocial";
-            this.txtRazonSocial.Size = new System.Drawing.Size(199, 20);
-            this.txtRazonSocial.TabIndex = 14;
+            this.txtMaterial.Location = new System.Drawing.Point(108, 111);
+            this.txtMaterial.Name = "txtMaterial";
+            this.txtMaterial.Size = new System.Drawing.Size(199, 20);
+            this.txtMaterial.TabIndex = 14;
             // 
-            // cbkEstadoMaterial
+            // chkEstado
             // 
-            this.cbkEstadoMaterial.AutoSize = true;
-            this.cbkEstadoMaterial.Location = new System.Drawing.Point(533, 67);
-            this.cbkEstadoMaterial.Name = "cbkEstadoMaterial";
-            this.cbkEstadoMaterial.Size = new System.Drawing.Size(59, 17);
-            this.cbkEstadoMaterial.TabIndex = 13;
-            this.cbkEstadoMaterial.Text = "Estado";
-            this.cbkEstadoMaterial.UseVisualStyleBackColor = true;
+            this.chkEstado.AutoSize = true;
+            this.chkEstado.Location = new System.Drawing.Point(485, 99);
+            this.chkEstado.Name = "chkEstado";
+            this.chkEstado.Size = new System.Drawing.Size(59, 17);
+            this.chkEstado.TabIndex = 13;
+            this.chkEstado.Text = "Estado";
+            this.chkEstado.UseVisualStyleBackColor = true;
             // 
             // lblCorreo
             // 
             this.lblCorreo.AutoSize = true;
-            this.lblCorreo.Location = new System.Drawing.Point(6, 193);
+            this.lblCorreo.Location = new System.Drawing.Point(5, 212);
             this.lblCorreo.Name = "lblCorreo";
             this.lblCorreo.Size = new System.Drawing.Size(59, 13);
             this.lblCorreo.TabIndex = 12;
@@ -268,6 +279,7 @@
             this.btnDeshabilitar.TabIndex = 37;
             this.btnDeshabilitar.Text = "Deshabilitar";
             this.btnDeshabilitar.UseVisualStyleBackColor = true;
+            this.btnDeshabilitar.Click += new System.EventHandler(this.btnDeshabilitar_Click);
             // 
             // btnSalir
             // 
@@ -277,6 +289,7 @@
             this.btnSalir.TabIndex = 36;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnEditar
             // 
@@ -286,6 +299,7 @@
             this.btnEditar.TabIndex = 35;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnNuevo
             // 
@@ -295,64 +309,17 @@
             this.btnNuevo.TabIndex = 34;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // dgvProv
+            // dgvMaterial
             // 
-            this.dgvProv.ColumnHeadersHeight = 29;
-            this.dgvProv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idMaterial,
-            this.Codigo,
-            this.colDescripcion,
-            this.colMarca,
-            this.colProveedor,
-            this.colMedida,
-            this.colStock});
-            this.dgvProv.Location = new System.Drawing.Point(12, 12);
-            this.dgvProv.Name = "dgvProv";
-            this.dgvProv.RowHeadersWidth = 51;
-            this.dgvProv.Size = new System.Drawing.Size(963, 285);
-            this.dgvProv.TabIndex = 33;
-            // 
-            // idMaterial
-            // 
-            this.idMaterial.HeaderText = "ID";
-            this.idMaterial.MinimumWidth = 6;
-            this.idMaterial.Name = "idMaterial";
-            this.idMaterial.Width = 125;
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Código";
-            this.Codigo.Name = "Codigo";
-            // 
-            // colDescripcion
-            // 
-            this.colDescripcion.HeaderText = "Descripción";
-            this.colDescripcion.MinimumWidth = 6;
-            this.colDescripcion.Name = "colDescripcion";
-            this.colDescripcion.Width = 125;
-            // 
-            // colMarca
-            // 
-            this.colMarca.HeaderText = "Marca";
-            this.colMarca.MinimumWidth = 6;
-            this.colMarca.Name = "colMarca";
-            this.colMarca.Width = 125;
-            // 
-            // colProveedor
-            // 
-            this.colProveedor.HeaderText = "Proveedor";
-            this.colProveedor.Name = "colProveedor";
-            // 
-            // colMedida
-            // 
-            this.colMedida.HeaderText = "Unidad Medida";
-            this.colMedida.Name = "colMedida";
-            // 
-            // colStock
-            // 
-            this.colStock.HeaderText = "Stock";
-            this.colStock.Name = "colStock";
+            this.dgvMaterial.ColumnHeadersHeight = 29;
+            this.dgvMaterial.Location = new System.Drawing.Point(12, 12);
+            this.dgvMaterial.Name = "dgvMaterial";
+            this.dgvMaterial.RowHeadersWidth = 51;
+            this.dgvMaterial.Size = new System.Drawing.Size(963, 285);
+            this.dgvMaterial.TabIndex = 33;
+            this.dgvMaterial.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaterial_CellDoubleClick);
             // 
             // btnAgregarMarca
             // 
@@ -362,6 +329,7 @@
             this.btnAgregarMarca.TabIndex = 39;
             this.btnAgregarMarca.Text = "Agregar Marca";
             this.btnAgregarMarca.UseVisualStyleBackColor = true;
+            this.btnAgregarMarca.Click += new System.EventHandler(this.btnAgregarMarca_Click);
             // 
             // btnAgregarTipoMaterial
             // 
@@ -371,22 +339,7 @@
             this.btnAgregarTipoMaterial.TabIndex = 40;
             this.btnAgregarTipoMaterial.Text = "Agregar Tipo Material";
             this.btnAgregarTipoMaterial.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 63);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 13);
-            this.label5.TabIndex = 40;
-            this.label5.Text = "Código";
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.Location = new System.Drawing.Point(109, 60);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(199, 20);
-            this.txtCodigo.TabIndex = 41;
+            this.btnAgregarTipoMaterial.Click += new System.EventHandler(this.btnAgregarTipoMaterial_Click);
             // 
             // MantenedorMaterial
             // 
@@ -395,25 +348,25 @@
             this.ClientSize = new System.Drawing.Size(1105, 590);
             this.Controls.Add(this.btnAgregarTipoMaterial);
             this.Controls.Add(this.btnAgregarMarca);
-            this.Controls.Add(this.grupBoxDatos);
+            this.Controls.Add(this.groupBoxDatos);
             this.Controls.Add(this.btnDeshabilitar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.dgvProv);
+            this.Controls.Add(this.dgvMaterial);
             this.Name = "MantenedorMaterial";
             this.Text = "MantenedorMaterial";
-            this.grupBoxDatos.ResumeLayout(false);
-            this.grupBoxDatos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProv)).EndInit();
+            this.groupBoxDatos.ResumeLayout(false);
+            this.groupBoxDatos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox grupBoxDatos;
-        private System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.GroupBox groupBoxDatos;
+        private System.Windows.Forms.TextBox txtUnidadMedida;
         private System.Windows.Forms.Label lblTelefono;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnAgregar;
@@ -422,31 +375,24 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblRazonSocial;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtRazonSocial;
-        private System.Windows.Forms.CheckBox cbkEstadoMaterial;
+        private System.Windows.Forms.TextBox txtMaterial;
+        private System.Windows.Forms.CheckBox chkEstado;
         private System.Windows.Forms.Label lblCorreo;
         private System.Windows.Forms.Button btnDeshabilitar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.DataGridView dgvProv;
+        private System.Windows.Forms.DataGridView dgvMaterial;
         private System.Windows.Forms.Button btnAgregarMarca;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ComboBox cboProveedor;
+        private System.Windows.Forms.ComboBox cboMarca;
+        private System.Windows.Forms.ComboBox cboTipoMaterial;
+        private System.Windows.Forms.TextBox txtStock;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAgregarTipoMaterial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idMaterial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMarca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMedida;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colStock;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtMaterialID;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace SistemaVentas
 {
-    partial class BandejaRequerimientosForm
+    partial class BandejaRequerimientosCompras
     {
         /// <summary>
         /// Required designer variable.
@@ -29,28 +29,30 @@
         private void InitializeComponent()
         {
             this.pnlAcciones = new System.Windows.Forms.Panel();
+            this.btnPedidoCompra = new System.Windows.Forms.Button();
             this.btnFormaPago = new System.Windows.Forms.Button();
             this.btnProv = new System.Windows.Forms.Button();
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnInicio = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnAtender = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.dgvRequerimientos = new System.Windows.Forms.DataGridView();
-            this.colNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colObra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSolicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrioridad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colObservacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvRequerimientosCompras = new System.Windows.Forms.DataGridView();
+            this.ReqcompraID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ObraID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Solicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Prioridad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Observacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstadoAtender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colItems = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.grpFiltros = new System.Windows.Forms.GroupBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboObra = new System.Windows.Forms.ComboBox();
             this.lblObra = new System.Windows.Forms.Label();
             this.lblEstado = new System.Windows.Forms.Label();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.txtBuscarNumReq = new System.Windows.Forms.TextBox();
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -59,29 +61,40 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pnlAcciones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRequerimientos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRequerimientosCompras)).BeginInit();
             this.statusBar.SuspendLayout();
             this.grpFiltros.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlAcciones
             // 
+            this.pnlAcciones.Controls.Add(this.btnPedidoCompra);
             this.pnlAcciones.Controls.Add(this.btnFormaPago);
             this.pnlAcciones.Controls.Add(this.btnProv);
             this.pnlAcciones.Controls.Add(this.btnAnular);
             this.pnlAcciones.Controls.Add(this.btnInicio);
-            this.pnlAcciones.Controls.Add(this.btnNuevo);
+            this.pnlAcciones.Controls.Add(this.btnAtender);
             this.pnlAcciones.Controls.Add(this.btnCerrar);
             this.pnlAcciones.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlAcciones.Location = new System.Drawing.Point(856, 0);
+            this.pnlAcciones.Location = new System.Drawing.Point(941, 0);
             this.pnlAcciones.Margin = new System.Windows.Forms.Padding(2);
             this.pnlAcciones.Name = "pnlAcciones";
             this.pnlAcciones.Size = new System.Drawing.Size(130, 551);
             this.pnlAcciones.TabIndex = 22;
             // 
+            // btnPedidoCompra
+            // 
+            this.btnPedidoCompra.Location = new System.Drawing.Point(18, 93);
+            this.btnPedidoCompra.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPedidoCompra.Name = "btnPedidoCompra";
+            this.btnPedidoCompra.Size = new System.Drawing.Size(91, 36);
+            this.btnPedidoCompra.TabIndex = 25;
+            this.btnPedidoCompra.Text = "PedidoCompra";
+            this.btnPedidoCompra.UseVisualStyleBackColor = true;
+            // 
             // btnFormaPago
             // 
-            this.btnFormaPago.Location = new System.Drawing.Point(18, 251);
+            this.btnFormaPago.Location = new System.Drawing.Point(18, 304);
             this.btnFormaPago.Margin = new System.Windows.Forms.Padding(2);
             this.btnFormaPago.Name = "btnFormaPago";
             this.btnFormaPago.Size = new System.Drawing.Size(91, 25);
@@ -92,7 +105,7 @@
             // 
             // btnProv
             // 
-            this.btnProv.Location = new System.Drawing.Point(18, 212);
+            this.btnProv.Location = new System.Drawing.Point(18, 265);
             this.btnProv.Margin = new System.Windows.Forms.Padding(2);
             this.btnProv.Name = "btnProv";
             this.btnProv.Size = new System.Drawing.Size(91, 25);
@@ -103,7 +116,7 @@
             // 
             // btnAnular
             // 
-            this.btnAnular.Location = new System.Drawing.Point(18, 93);
+            this.btnAnular.Location = new System.Drawing.Point(18, 146);
             this.btnAnular.Margin = new System.Windows.Forms.Padding(2);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(91, 39);
@@ -122,20 +135,20 @@
             this.btnInicio.UseVisualStyleBackColor = true;
             this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
             // 
-            // btnNuevo
+            // btnAtender
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(18, 38);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(2);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(91, 36);
-            this.btnNuevo.TabIndex = 11;
-            this.btnNuevo.Text = "Atender";
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            this.btnAtender.Location = new System.Drawing.Point(18, 38);
+            this.btnAtender.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAtender.Name = "btnAtender";
+            this.btnAtender.Size = new System.Drawing.Size(91, 36);
+            this.btnAtender.TabIndex = 11;
+            this.btnAtender.Text = "Atender";
+            this.btnAtender.UseVisualStyleBackColor = true;
+            this.btnAtender.Click += new System.EventHandler(this.btnAtender_Click);
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(18, 156);
+            this.btnCerrar.Location = new System.Drawing.Point(18, 209);
             this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(91, 38);
@@ -143,65 +156,78 @@
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = true;
             // 
-            // dgvRequerimientos
+            // dgvRequerimientosCompras
             // 
-            this.dgvRequerimientos.AllowUserToDeleteRows = false;
-            this.dgvRequerimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRequerimientos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colNum,
-            this.colObra,
-            this.colFecha,
-            this.colSolicitante,
-            this.colPrioridad,
-            this.colObservacion,
+            this.dgvRequerimientosCompras.AllowUserToDeleteRows = false;
+            this.dgvRequerimientosCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRequerimientosCompras.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ReqcompraID,
+            this.ObraID,
+            this.Fecha,
+            this.Solicitante,
+            this.Prioridad,
+            this.Observacion,
+            this.EstadoAtender,
             this.colItems});
-            this.dgvRequerimientos.Location = new System.Drawing.Point(26, 126);
-            this.dgvRequerimientos.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvRequerimientos.Name = "dgvRequerimientos";
-            this.dgvRequerimientos.RowHeadersWidth = 51;
-            this.dgvRequerimientos.RowTemplate.Height = 24;
-            this.dgvRequerimientos.Size = new System.Drawing.Size(763, 380);
-            this.dgvRequerimientos.TabIndex = 20;
+            this.dgvRequerimientosCompras.Location = new System.Drawing.Point(19, 126);
+            this.dgvRequerimientosCompras.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvRequerimientosCompras.Name = "dgvRequerimientosCompras";
+            this.dgvRequerimientosCompras.RowHeadersWidth = 51;
+            this.dgvRequerimientosCompras.RowTemplate.Height = 24;
+            this.dgvRequerimientosCompras.Size = new System.Drawing.Size(881, 380);
+            this.dgvRequerimientosCompras.TabIndex = 20;
             // 
-            // colNum
+            // ReqcompraID
             // 
-            this.colNum.HeaderText = "N° Req";
-            this.colNum.MinimumWidth = 6;
-            this.colNum.Name = "colNum";
-            this.colNum.Width = 80;
+            this.ReqcompraID.DataPropertyName = "ReqcompraID";
+            this.ReqcompraID.HeaderText = "N° Req";
+            this.ReqcompraID.MinimumWidth = 6;
+            this.ReqcompraID.Name = "ReqcompraID";
+            this.ReqcompraID.Width = 80;
             // 
-            // colObra
+            // ObraID
             // 
-            this.colObra.HeaderText = "Obra";
-            this.colObra.MinimumWidth = 6;
-            this.colObra.Name = "colObra";
-            this.colObra.Width = 160;
+            this.ObraID.DataPropertyName = "ObraID";
+            this.ObraID.HeaderText = "Obra";
+            this.ObraID.MinimumWidth = 6;
+            this.ObraID.Name = "ObraID";
+            this.ObraID.Width = 160;
             // 
-            // colFecha
+            // Fecha
             // 
-            this.colFecha.HeaderText = "Fecha";
-            this.colFecha.MinimumWidth = 6;
-            this.colFecha.Name = "colFecha";
-            this.colFecha.Width = 135;
+            this.Fecha.DataPropertyName = "Fecha";
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.MinimumWidth = 6;
+            this.Fecha.Name = "Fecha";
+            this.Fecha.Width = 135;
             // 
-            // colSolicitante
+            // Solicitante
             // 
-            this.colSolicitante.HeaderText = "Solicitante";
-            this.colSolicitante.MinimumWidth = 6;
-            this.colSolicitante.Name = "colSolicitante";
-            this.colSolicitante.Width = 150;
+            this.Solicitante.DataPropertyName = "Solicitante";
+            this.Solicitante.HeaderText = "Solicitante";
+            this.Solicitante.MinimumWidth = 6;
+            this.Solicitante.Name = "Solicitante";
+            this.Solicitante.Width = 150;
             // 
-            // colPrioridad
+            // Prioridad
             // 
-            this.colPrioridad.HeaderText = "Prioridad";
-            this.colPrioridad.MinimumWidth = 6;
-            this.colPrioridad.Name = "colPrioridad";
-            this.colPrioridad.Width = 125;
+            this.Prioridad.DataPropertyName = "Prioridad";
+            this.Prioridad.HeaderText = "Prioridad";
+            this.Prioridad.MinimumWidth = 6;
+            this.Prioridad.Name = "Prioridad";
+            this.Prioridad.Width = 125;
             // 
-            // colObservacion
+            // Observacion
             // 
-            this.colObservacion.HeaderText = "Observacion";
-            this.colObservacion.Name = "colObservacion";
+            this.Observacion.DataPropertyName = "Observacion";
+            this.Observacion.HeaderText = "Observacion";
+            this.Observacion.Name = "Observacion";
+            // 
+            // EstadoAtender
+            // 
+            this.EstadoAtender.DataPropertyName = "EstadoAtender";
+            this.EstadoAtender.HeaderText = "Estado";
+            this.EstadoAtender.Name = "EstadoAtender";
             // 
             // colItems
             // 
@@ -218,7 +244,7 @@
             this.statusBar.Location = new System.Drawing.Point(0, 529);
             this.statusBar.Name = "statusBar";
             this.statusBar.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
-            this.statusBar.Size = new System.Drawing.Size(856, 22);
+            this.statusBar.Size = new System.Drawing.Size(941, 22);
             this.statusBar.TabIndex = 23;
             this.statusBar.Text = "statusStrip1";
             // 
@@ -231,10 +257,10 @@
             // grpFiltros
             // 
             this.grpFiltros.Controls.Add(this.comboBox2);
-            this.grpFiltros.Controls.Add(this.comboBox1);
+            this.grpFiltros.Controls.Add(this.cboObra);
             this.grpFiltros.Controls.Add(this.lblObra);
             this.grpFiltros.Controls.Add(this.lblEstado);
-            this.grpFiltros.Controls.Add(this.txtBuscar);
+            this.grpFiltros.Controls.Add(this.txtBuscarNumReq);
             this.grpFiltros.Controls.Add(this.dtpDesde);
             this.grpFiltros.Controls.Add(this.dtpHasta);
             this.grpFiltros.Controls.Add(this.btnBuscar);
@@ -245,7 +271,7 @@
             this.grpFiltros.Margin = new System.Windows.Forms.Padding(2);
             this.grpFiltros.Name = "grpFiltros";
             this.grpFiltros.Padding = new System.Windows.Forms.Padding(2);
-            this.grpFiltros.Size = new System.Drawing.Size(836, 88);
+            this.grpFiltros.Size = new System.Drawing.Size(891, 88);
             this.grpFiltros.TabIndex = 24;
             this.grpFiltros.TabStop = false;
             this.grpFiltros.Text = "Filtros de búsqueda";
@@ -258,13 +284,13 @@
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 19;
             // 
-            // comboBox1
+            // cboObra
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(171, 41);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 18;
+            this.cboObra.FormattingEnabled = true;
+            this.cboObra.Location = new System.Drawing.Point(171, 41);
+            this.cboObra.Name = "cboObra";
+            this.cboObra.Size = new System.Drawing.Size(121, 21);
+            this.cboObra.TabIndex = 18;
             // 
             // lblObra
             // 
@@ -286,13 +312,13 @@
             this.lblEstado.TabIndex = 17;
             this.lblEstado.Text = "Prioridad:";
             // 
-            // txtBuscar
+            // txtBuscarNumReq
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(17, 42);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(2);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(122, 20);
-            this.txtBuscar.TabIndex = 7;
+            this.txtBuscarNumReq.Location = new System.Drawing.Point(17, 42);
+            this.txtBuscarNumReq.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBuscarNumReq.Name = "txtBuscarNumReq";
+            this.txtBuscarNumReq.Size = new System.Drawing.Size(122, 20);
+            this.txtBuscarNumReq.TabIndex = 7;
             // 
             // dtpDesde
             // 
@@ -356,28 +382,29 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(306, 0);
+            this.label4.Location = new System.Drawing.Point(235, 0);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(349, 26);
+            this.label4.Size = new System.Drawing.Size(454, 26);
             this.label4.TabIndex = 25;
-            this.label4.Text = "Atender Requerimiento de Compra";
+            this.label4.Text = "Atender Requerimiento de Compra (Compras)";
             // 
-            // BandejaRequerimientosForm
+            // BandejaRequerimientosCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(986, 551);
+            this.ClientSize = new System.Drawing.Size(1071, 551);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.grpFiltros);
             this.Controls.Add(this.statusBar);
             this.Controls.Add(this.pnlAcciones);
-            this.Controls.Add(this.dgvRequerimientos);
+            this.Controls.Add(this.dgvRequerimientosCompras);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "BandejaRequerimientosForm";
+            this.Name = "BandejaRequerimientosCompras";
             this.Text = "Bandeja de Requerimientos de Compra";
+            this.Load += new System.EventHandler(this.BandejaRequerimientosCompras_Load);
             this.pnlAcciones.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRequerimientos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRequerimientosCompras)).EndInit();
             this.statusBar.ResumeLayout(false);
             this.statusBar.PerformLayout();
             this.grpFiltros.ResumeLayout(false);
@@ -391,9 +418,9 @@
 
         private System.Windows.Forms.Panel pnlAcciones;
         private System.Windows.Forms.Button btnInicio;
-        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnAtender;
         private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.DataGridView dgvRequerimientos;
+        private System.Windows.Forms.DataGridView dgvRequerimientosCompras;
         private System.Windows.Forms.Button btnAnular;
         private System.Windows.Forms.StatusStrip statusBar;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
@@ -401,10 +428,10 @@
         private System.Windows.Forms.Button btnProv;
         private System.Windows.Forms.GroupBox grpFiltros;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboObra;
         private System.Windows.Forms.Label lblObra;
         private System.Windows.Forms.Label lblEstado;
-        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.TextBox txtBuscarNumReq;
         private System.Windows.Forms.DateTimePicker dtpDesde;
         private System.Windows.Forms.DateTimePicker dtpHasta;
         private System.Windows.Forms.Button btnBuscar;
@@ -412,12 +439,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colObra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSolicitante;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrioridad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colObservacion;
+        private System.Windows.Forms.Button btnPedidoCompra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReqcompraID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ObraID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Solicitante;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Prioridad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Observacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EstadoAtender;
         private System.Windows.Forms.DataGridViewTextBoxColumn colItems;
     }
 }

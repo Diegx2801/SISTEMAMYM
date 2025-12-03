@@ -32,15 +32,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtTotalItems = new System.Windows.Forms.TextBox();
             this.lblTotalItems = new System.Windows.Forms.Label();
-            this.lblCorreo = new System.Windows.Forms.Label();
             this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblRazonSocial = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.lblTelefono = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -65,12 +61,12 @@
             this.colUnidad,
             this.colCantidad,
             this.colObservacion});
-            this.dgvItems.Location = new System.Drawing.Point(67, 49);
-            this.dgvItems.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvItems.Location = new System.Drawing.Point(76, 58);
+            this.dgvItems.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.RowHeadersWidth = 51;
             this.dgvItems.RowTemplate.Height = 24;
-            this.dgvItems.Size = new System.Drawing.Size(633, 344);
+            this.dgvItems.Size = new System.Drawing.Size(624, 253);
             this.dgvItems.TabIndex = 40;
             // 
             // label1
@@ -86,8 +82,8 @@
             // 
             // txtTotalItems
             // 
-            this.txtTotalItems.Location = new System.Drawing.Point(133, 398);
-            this.txtTotalItems.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTotalItems.Location = new System.Drawing.Point(140, 326);
+            this.txtTotalItems.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTotalItems.Name = "txtTotalItems";
             this.txtTotalItems.Size = new System.Drawing.Size(73, 20);
             this.txtTotalItems.TabIndex = 42;
@@ -95,21 +91,12 @@
             // lblTotalItems
             // 
             this.lblTotalItems.AutoSize = true;
-            this.lblTotalItems.Location = new System.Drawing.Point(67, 401);
+            this.lblTotalItems.Location = new System.Drawing.Point(74, 329);
             this.lblTotalItems.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalItems.Name = "lblTotalItems";
             this.lblTotalItems.Size = new System.Drawing.Size(65, 13);
             this.lblTotalItems.TabIndex = 41;
             this.lblTotalItems.Text = "Total Items :";
-            // 
-            // lblCorreo
-            // 
-            this.lblCorreo.AutoSize = true;
-            this.lblCorreo.Location = new System.Drawing.Point(6, 167);
-            this.lblCorreo.Name = "lblCorreo";
-            this.lblCorreo.Size = new System.Drawing.Size(59, 13);
-            this.lblCorreo.TabIndex = 12;
-            this.lblCorreo.Text = "Proveedor:";
             // 
             // txtRazonSocial
             // 
@@ -132,9 +119,9 @@
             this.lblRazonSocial.AutoSize = true;
             this.lblRazonSocial.Location = new System.Drawing.Point(6, 71);
             this.lblRazonSocial.Name = "lblRazonSocial";
-            this.lblRazonSocial.Size = new System.Drawing.Size(110, 13);
+            this.lblRazonSocial.Size = new System.Drawing.Size(109, 13);
             this.lblRazonSocial.TabIndex = 9;
-            this.lblRazonSocial.Text = "Nro de Orden Compra";
+            this.lblRazonSocial.Text = "Nro de Orden Ingreso";
             // 
             // btnCancelar
             // 
@@ -154,35 +141,10 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             // 
-            // lblTelefono
-            // 
-            this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(6, 137);
-            this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(82, 13);
-            this.lblTelefono.TabIndex = 27;
-            this.lblTelefono.Text = "Forma de Pago:";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(122, 134);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(199, 21);
-            this.comboBox2.TabIndex = 33;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(122, 164);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(199, 21);
-            this.comboBox3.TabIndex = 34;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 204);
+            this.label2.Location = new System.Drawing.Point(7, 135);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 13);
             this.label2.TabIndex = 36;
@@ -190,7 +152,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(122, 201);
+            this.textBox2.Location = new System.Drawing.Point(121, 135);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(199, 20);
@@ -208,35 +170,35 @@
             this.grupBoxDatos.Controls.Add(this.dateTimePicker1);
             this.grupBoxDatos.Controls.Add(this.textBox2);
             this.grupBoxDatos.Controls.Add(this.label2);
-            this.grupBoxDatos.Controls.Add(this.comboBox3);
-            this.grupBoxDatos.Controls.Add(this.comboBox2);
-            this.grupBoxDatos.Controls.Add(this.lblTelefono);
             this.grupBoxDatos.Controls.Add(this.btnAgregar);
             this.grupBoxDatos.Controls.Add(this.btnCancelar);
             this.grupBoxDatos.Controls.Add(this.lblRazonSocial);
             this.grupBoxDatos.Controls.Add(this.label3);
             this.grupBoxDatos.Controls.Add(this.txtRazonSocial);
-            this.grupBoxDatos.Controls.Add(this.lblCorreo);
-            this.grupBoxDatos.Location = new System.Drawing.Point(67, 423);
+            this.grupBoxDatos.Location = new System.Drawing.Point(67, 349);
             this.grupBoxDatos.Name = "grupBoxDatos";
             this.grupBoxDatos.Size = new System.Drawing.Size(633, 247);
             this.grupBoxDatos.TabIndex = 43;
             this.grupBoxDatos.TabStop = false;
-            this.grupBoxDatos.Text = "Datos Orden de Compra";
+            this.grupBoxDatos.Text = "Datos Orden de Ingreso";
             // 
             // idItem
             // 
             this.idItem.HeaderText = "ID";
+            this.idItem.MinimumWidth = 6;
             this.idItem.Name = "idItem";
+            this.idItem.Width = 125;
             // 
             // Codigo
             // 
             this.Codigo.HeaderText = "Código";
+            this.Codigo.MinimumWidth = 6;
             this.Codigo.Name = "Codigo";
+            this.Codigo.Width = 125;
             // 
             // colItem
             // 
-            this.colItem.HeaderText = "Item";
+            this.colItem.HeaderText = "Material";
             this.colItem.MinimumWidth = 6;
             this.colItem.Name = "colItem";
             this.colItem.Width = 125;
@@ -287,15 +249,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTotalItems;
         private System.Windows.Forms.Label lblTotalItems;
-        private System.Windows.Forms.Label lblCorreo;
         private System.Windows.Forms.TextBox txtRazonSocial;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblRazonSocial;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Label lblTelefono;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;

@@ -18,10 +18,12 @@ namespace CapaAccesoDatos
         public SqlConnection Conectar()
         {
             SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = "Data Source=UTSILAB712; Initial Catalog = DBVentas_8076;" +//"User ID=sa;Password = 123";
+            cn.ConnectionString = "Data Source=DESKTOP-QHBIRL4\\SQLEXPRESS; Initial Catalog = SistemaMYM;" +//"User ID=sa;Password = 123";
             "Integrated Security=true";
             return cn;
         }
 
     }
 }
+
+

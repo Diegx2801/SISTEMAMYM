@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.dgvRequerimientos = new System.Windows.Forms.DataGridView();
+            this.btnAnular = new System.Windows.Forms.Button();
+            this.dgvOrdenes = new System.Windows.Forms.DataGridView();
             this.grpFiltros = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cboObraFiltro = new System.Windows.Forms.ComboBox();
             this.lblEstado = new System.Windows.Forms.Label();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.txtNroPedido = new System.Windows.Forms.TextBox();
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -44,47 +44,39 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.colNpedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colObra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRequerimientos)).BeginInit();
+            this.btnRegistrarOrdenSalida = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).BeginInit();
             this.grpFiltros.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // btnAnular
             // 
-            this.button1.Location = new System.Drawing.Point(698, 173);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 38);
-            this.button1.TabIndex = 58;
-            this.button1.Text = "Anular";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAnular.Location = new System.Drawing.Point(698, 226);
+            this.btnAnular.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAnular.Name = "btnAnular";
+            this.btnAnular.Size = new System.Drawing.Size(91, 38);
+            this.btnAnular.TabIndex = 58;
+            this.btnAnular.Text = "Anular";
+            this.btnAnular.UseVisualStyleBackColor = true;
+            this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
             // 
-            // dgvRequerimientos
+            // dgvOrdenes
             // 
-            this.dgvRequerimientos.AllowUserToDeleteRows = false;
-            this.dgvRequerimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRequerimientos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colNpedido,
-            this.colObra,
-            this.colFecha,
-            this.colEstado});
-            this.dgvRequerimientos.Location = new System.Drawing.Point(12, 173);
-            this.dgvRequerimientos.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvRequerimientos.Name = "dgvRequerimientos";
-            this.dgvRequerimientos.RowHeadersWidth = 51;
-            this.dgvRequerimientos.RowTemplate.Height = 24;
-            this.dgvRequerimientos.Size = new System.Drawing.Size(652, 380);
-            this.dgvRequerimientos.TabIndex = 53;
+            this.dgvOrdenes.AllowUserToDeleteRows = false;
+            this.dgvOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrdenes.Location = new System.Drawing.Point(12, 173);
+            this.dgvOrdenes.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvOrdenes.Name = "dgvOrdenes";
+            this.dgvOrdenes.RowHeadersWidth = 51;
+            this.dgvOrdenes.RowTemplate.Height = 24;
+            this.dgvOrdenes.Size = new System.Drawing.Size(652, 380);
+            this.dgvOrdenes.TabIndex = 53;
             // 
             // grpFiltros
             // 
-            this.grpFiltros.Controls.Add(this.comboBox2);
+            this.grpFiltros.Controls.Add(this.cboObraFiltro);
             this.grpFiltros.Controls.Add(this.lblEstado);
-            this.grpFiltros.Controls.Add(this.txtBuscar);
+            this.grpFiltros.Controls.Add(this.txtNroPedido);
             this.grpFiltros.Controls.Add(this.dtpDesde);
             this.grpFiltros.Controls.Add(this.dtpHasta);
             this.grpFiltros.Controls.Add(this.btnBuscar);
@@ -100,13 +92,13 @@
             this.grpFiltros.TabStop = false;
             this.grpFiltros.Text = "Filtros de búsqueda";
             // 
-            // comboBox2
+            // cboObraFiltro
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(172, 41);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 19;
+            this.cboObraFiltro.FormattingEnabled = true;
+            this.cboObraFiltro.Location = new System.Drawing.Point(172, 41);
+            this.cboObraFiltro.Name = "cboObraFiltro";
+            this.cboObraFiltro.Size = new System.Drawing.Size(121, 21);
+            this.cboObraFiltro.TabIndex = 19;
             // 
             // lblEstado
             // 
@@ -114,17 +106,17 @@
             this.lblEstado.Location = new System.Drawing.Point(169, 25);
             this.lblEstado.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(43, 13);
+            this.lblEstado.Size = new System.Drawing.Size(30, 13);
             this.lblEstado.TabIndex = 17;
-            this.lblEstado.Text = "Estado:";
+            this.lblEstado.Text = "Obra";
             // 
-            // txtBuscar
+            // txtNroPedido
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(17, 42);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(2);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(122, 20);
-            this.txtBuscar.TabIndex = 7;
+            this.txtNroPedido.Location = new System.Drawing.Point(17, 42);
+            this.txtNroPedido.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNroPedido.Name = "txtNroPedido";
+            this.txtNroPedido.Size = new System.Drawing.Size(122, 20);
+            this.txtNroPedido.TabIndex = 7;
             // 
             // dtpDesde
             // 
@@ -153,6 +145,7 @@
             this.btnBuscar.TabIndex = 9;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label2
             // 
@@ -196,17 +189,18 @@
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(698, 231);
+            this.btnCerrar.Location = new System.Drawing.Point(698, 285);
             this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(91, 38);
             this.btnCerrar.TabIndex = 55;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(698, 293);
+            this.btnImprimir.Location = new System.Drawing.Point(698, 340);
             this.btnImprimir.Margin = new System.Windows.Forms.Padding(2);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(91, 39);
@@ -218,57 +212,32 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(341, 23);
+            this.label1.Location = new System.Drawing.Point(233, 23);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(249, 26);
             this.label1.TabIndex = 52;
             this.label1.Text = "Bandeja Orden de Salida";
             // 
-            // button2
+            // btnRegistrarOrdenSalida
             // 
-            this.button2.Location = new System.Drawing.Point(698, 114);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(91, 38);
-            this.button2.TabIndex = 59;
-            this.button2.Text = "Registrar Orden Salida";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // colNpedido
-            // 
-            this.colNpedido.HeaderText = "N° Pedido";
-            this.colNpedido.MinimumWidth = 6;
-            this.colNpedido.Name = "colNpedido";
-            this.colNpedido.Width = 80;
-            // 
-            // colObra
-            // 
-            this.colObra.HeaderText = "Obra";
-            this.colObra.Name = "colObra";
-            // 
-            // colFecha
-            // 
-            this.colFecha.HeaderText = "Fecha";
-            this.colFecha.MinimumWidth = 6;
-            this.colFecha.Name = "colFecha";
-            this.colFecha.Width = 135;
-            // 
-            // colEstado
-            // 
-            this.colEstado.HeaderText = "Estado";
-            this.colEstado.MinimumWidth = 6;
-            this.colEstado.Name = "colEstado";
-            this.colEstado.Width = 125;
+            this.btnRegistrarOrdenSalida.Location = new System.Drawing.Point(698, 173);
+            this.btnRegistrarOrdenSalida.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRegistrarOrdenSalida.Name = "btnRegistrarOrdenSalida";
+            this.btnRegistrarOrdenSalida.Size = new System.Drawing.Size(91, 38);
+            this.btnRegistrarOrdenSalida.TabIndex = 59;
+            this.btnRegistrarOrdenSalida.Text = "Registrar Orden Salida";
+            this.btnRegistrarOrdenSalida.UseVisualStyleBackColor = true;
+            this.btnRegistrarOrdenSalida.Click += new System.EventHandler(this.btnRegistrarOrdenSalida_Click);
             // 
             // BandejaOrdenSalida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 588);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dgvRequerimientos);
+            this.Controls.Add(this.btnRegistrarOrdenSalida);
+            this.Controls.Add(this.btnAnular);
+            this.Controls.Add(this.dgvOrdenes);
             this.Controls.Add(this.grpFiltros);
             this.Controls.Add(this.btnInicio);
             this.Controls.Add(this.btnCerrar);
@@ -276,7 +245,7 @@
             this.Controls.Add(this.label1);
             this.Name = "BandejaOrdenSalida";
             this.Text = "BandejaOrdenSalida";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRequerimientos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).EndInit();
             this.grpFiltros.ResumeLayout(false);
             this.grpFiltros.PerformLayout();
             this.ResumeLayout(false);
@@ -286,12 +255,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dgvRequerimientos;
+        private System.Windows.Forms.Button btnAnular;
+        private System.Windows.Forms.DataGridView dgvOrdenes;
         private System.Windows.Forms.GroupBox grpFiltros;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cboObraFiltro;
         private System.Windows.Forms.Label lblEstado;
-        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.TextBox txtNroPedido;
         private System.Windows.Forms.DateTimePicker dtpDesde;
         private System.Windows.Forms.DateTimePicker dtpHasta;
         private System.Windows.Forms.Button btnBuscar;
@@ -302,10 +271,6 @@
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNpedido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colObra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
+        private System.Windows.Forms.Button btnRegistrarOrdenSalida;
     }
 }

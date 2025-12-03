@@ -30,7 +30,7 @@
         {
             this.lblTotalItems = new System.Windows.Forms.Label();
             this.txtTotalItems = new System.Windows.Forms.TextBox();
-            this.dgvItems = new System.Windows.Forms.DataGridView();
+            this.dgvDetalles = new System.Windows.Forms.DataGridView();
             this.grupBoxDatos = new System.Windows.Forms.GroupBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -45,12 +45,12 @@
             this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.lblCorreo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.idItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colObservacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
+            this.MaterialID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnidadMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Observacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
             this.grupBoxDatos.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,22 +72,22 @@
             this.txtTotalItems.Size = new System.Drawing.Size(73, 20);
             this.txtTotalItems.TabIndex = 10;
             // 
-            // dgvItems
+            // dgvDetalles
             // 
-            this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idItem,
-            this.colMaterial,
-            this.colUnidad,
-            this.colCantidad,
-            this.colObservacion});
-            this.dgvItems.Location = new System.Drawing.Point(24, 65);
-            this.dgvItems.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvItems.Name = "dgvItems";
-            this.dgvItems.RowHeadersWidth = 51;
-            this.dgvItems.RowTemplate.Height = 24;
-            this.dgvItems.Size = new System.Drawing.Size(633, 344);
-            this.dgvItems.TabIndex = 8;
+            this.dgvDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaterialID,
+            this.NombreMaterial,
+            this.UnidadMedida,
+            this.Cantidad,
+            this.Observacion});
+            this.dgvDetalles.Location = new System.Drawing.Point(24, 65);
+            this.dgvDetalles.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvDetalles.Name = "dgvDetalles";
+            this.dgvDetalles.RowHeadersWidth = 51;
+            this.dgvDetalles.RowTemplate.Height = 24;
+            this.dgvDetalles.Size = new System.Drawing.Size(633, 344);
+            this.dgvDetalles.TabIndex = 8;
             // 
             // grupBoxDatos
             // 
@@ -108,7 +108,7 @@
             this.grupBoxDatos.Size = new System.Drawing.Size(633, 252);
             this.grupBoxDatos.TabIndex = 39;
             this.grupBoxDatos.TabStop = false;
-            this.grupBoxDatos.Text = "Datos Orden de Compra";
+            this.grupBoxDatos.Text = "Datos Pedido de Compra";
             this.grupBoxDatos.Enter += new System.EventHandler(this.grupBoxDatos_Enter);
             // 
             // dateTimePicker1
@@ -162,18 +162,18 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(522, 66);
+            this.btnAgregar.Location = new System.Drawing.Point(476, 56);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.Size = new System.Drawing.Size(135, 32);
             this.btnAgregar.TabIndex = 5;
-            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.Text = "Agregar Pedido Compra";
             this.btnAgregar.UseVisualStyleBackColor = true;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(522, 104);
+            this.btnCancelar.Location = new System.Drawing.Point(476, 104);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(135, 23);
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -223,38 +223,43 @@
             this.label1.TabIndex = 40;
             this.label1.Text = "Registrar Pedido de Compra";
             // 
-            // idItem
+            // MaterialID
             // 
-            this.idItem.HeaderText = "ID";
-            this.idItem.Name = "idItem";
+            this.MaterialID.DataPropertyName = "MaterialID";
+            this.MaterialID.HeaderText = "ID";
+            this.MaterialID.Name = "MaterialID";
             // 
-            // colMaterial
+            // NombreMaterial
             // 
-            this.colMaterial.HeaderText = "Material";
-            this.colMaterial.MinimumWidth = 6;
-            this.colMaterial.Name = "colMaterial";
-            this.colMaterial.Width = 125;
+            this.NombreMaterial.DataPropertyName = "NombreMaterial";
+            this.NombreMaterial.HeaderText = "Material";
+            this.NombreMaterial.MinimumWidth = 6;
+            this.NombreMaterial.Name = "NombreMaterial";
+            this.NombreMaterial.Width = 125;
             // 
-            // colUnidad
+            // UnidadMedida
             // 
-            this.colUnidad.HeaderText = "Unidad Medida";
-            this.colUnidad.MinimumWidth = 6;
-            this.colUnidad.Name = "colUnidad";
-            this.colUnidad.Width = 70;
+            this.UnidadMedida.DataPropertyName = "UnidadMedida";
+            this.UnidadMedida.HeaderText = "Unidad Medida";
+            this.UnidadMedida.MinimumWidth = 6;
+            this.UnidadMedida.Name = "UnidadMedida";
+            this.UnidadMedida.Width = 70;
             // 
-            // colCantidad
+            // Cantidad
             // 
-            this.colCantidad.HeaderText = "Cantidad";
-            this.colCantidad.MinimumWidth = 6;
-            this.colCantidad.Name = "colCantidad";
-            this.colCantidad.Width = 70;
+            this.Cantidad.DataPropertyName = "Cantidad";
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.MinimumWidth = 6;
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.Width = 70;
             // 
-            // colObservacion
+            // Observacion
             // 
-            this.colObservacion.HeaderText = "Observación";
-            this.colObservacion.MinimumWidth = 6;
-            this.colObservacion.Name = "colObservacion";
-            this.colObservacion.Width = 125;
+            this.Observacion.DataPropertyName = "Observacion";
+            this.Observacion.HeaderText = "Observación";
+            this.Observacion.MinimumWidth = 6;
+            this.Observacion.Name = "Observacion";
+            this.Observacion.Width = 125;
             // 
             // PedidoCompra
             // 
@@ -265,11 +270,12 @@
             this.Controls.Add(this.grupBoxDatos);
             this.Controls.Add(this.lblTotalItems);
             this.Controls.Add(this.txtTotalItems);
-            this.Controls.Add(this.dgvItems);
+            this.Controls.Add(this.dgvDetalles);
             this.Name = "PedidoCompra";
             this.Text = "PedidoCompra";
             this.TopMost = true;
-            ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
+            this.Load += new System.EventHandler(this.PedidoCompra_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).EndInit();
             this.grupBoxDatos.ResumeLayout(false);
             this.grupBoxDatos.PerformLayout();
             this.ResumeLayout(false);
@@ -281,7 +287,7 @@
 
         private System.Windows.Forms.Label lblTotalItems;
         private System.Windows.Forms.TextBox txtTotalItems;
-        private System.Windows.Forms.DataGridView dgvItems;
+        private System.Windows.Forms.DataGridView dgvDetalles;
         private System.Windows.Forms.GroupBox grupBoxDatos;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
@@ -296,10 +302,10 @@
         private System.Windows.Forms.Label lblCorreo;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMaterial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colUnidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colObservacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaterialID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreMaterial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UnidadMedida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Observacion;
     }
 }

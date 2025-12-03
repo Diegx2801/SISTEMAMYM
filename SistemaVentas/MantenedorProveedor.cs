@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CapaEntidad;
+using CapaLogica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,20 +17,160 @@ namespace SistemaVentas
         public MantenedorProveedor()
         {
             InitializeComponent();
+            listar();
+            groupBoxDatos.Enabled = false;
+            txtProveedorID.Enabled = false;
         }
 
-        private void btnRegresar_Click(object sender, EventArgs e)
+        private void listar()
         {
-            BandejaRequerimientosForm frm = new BandejaRequerimientosForm();
-            frm.Show();
-            this.Hide();
+            dgvProveedor.DataSource = logProveedor.Instancia.ListarProveedor();
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            groupBoxDatos.Enabled = true;
+            btnAgregar.Visible = true;
+            btnModificar.Visible = false;
+            limpiar();
+            chkEstadoProveedor.Checked = true;
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                entProveedor p = new entProveedor
+                {
+                    Ruc = txtRuc.Text.Trim(),
+                    RazonSocial = txtRazonSocial.Text.Trim(),
+                    Telefono = txtTelefono.Text.Trim(),
+                    Correo = txtCorreo.Text.Trim(),
+                    Direccion = txtDireccion.Text.Trim(),
+                    Descripcion = txtDescripcion.Text.Trim(),
+                    Estado = chkEstadoProveedor.Checked
+                };
+
+                logProveedor.Instancia.InsertarProveedor(p);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al insertar proveedor: " + ex.Message);
+            }
+
+            limpiar();
+            groupBoxDatos.Enabled = false;
+            listar();
+        }
+
+        private void dgvProveedor_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow fila = dgvProveedor.Rows[e.RowIndex];
+
+                // Ajusta índices según las columnas que muestres en el grid
+                txtProveedorID.Text = fila.Cells[0].Value.ToString();    // ProveedorID
+                txtRuc.Text = fila.Cells[1].Value.ToString();    // Ruc
+                txtRazonSocial.Text = fila.Cells[2].Value.ToString();    // RazonSocial
+                txtTelefono.Text = fila.Cells[3].Value.ToString();    // Telefono
+                txtCorreo.Text = fila.Cells[4].Value.ToString();    // Correo
+                txtDireccion.Text = fila.Cells[5].Value.ToString();    // Direccion
+                txtDescripcion.Text = fila.Cells[6].Value.ToString();    // Descripcion
+                chkEstadoProveedor.Checked = Convert.ToBoolean(fila.Cells[7].Value); // Estado
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            groupBoxDatos.Enabled = true;
+            btnAgregar.Visible = false;
+            btnModificar.Visible = true;
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtProveedorID.Text))
+            {
+                MessageBox.Show("Selecciona un proveedor primero.",
+                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                entProveedor p = new entProveedor
+                {
+                    ProveedorID = int.Parse(txtProveedorID.Text.Trim()),
+                    Ruc = txtRuc.Text.Trim(),
+                    RazonSocial = txtRazonSocial.Text.Trim(),
+                    Telefono = txtTelefono.Text.Trim(),
+                    Correo = txtCorreo.Text.Trim(),
+                    Direccion = txtDireccion.Text.Trim(),
+                    Descripcion = txtDescripcion.Text.Trim(),
+                    Estado = chkEstadoProveedor.Checked
+                };
+
+                logProveedor.Instancia.EditarProveedor(p);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al modificar proveedor: " + ex.Message);
+            }
+
+            limpiar();
+            groupBoxDatos.Enabled = false;
+            listar();
+        }
+
+        private void btnDeshabilitar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtProveedorID.Text))
+            {
+                MessageBox.Show("Selecciona un proveedor primero.",
+                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                entProveedor p = new entProveedor
+                {
+                    ProveedorID = int.Parse(txtProveedorID.Text.Trim())
+                };
+
+                logProveedor.Instancia.DeshabilitarProveedor(p);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al deshabilitar proveedor: " + ex.Message);
+            }
+
+            limpiar();
+            groupBoxDatos.Enabled = false;
+            listar();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            groupBoxDatos.Enabled = false;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            BandejaRequerimientosForm frm = new BandejaRequerimientosForm();
-            frm.Show();
-            this.Hide();
+            Close();
+        }
+
+        private void limpiar()
+        {
+            txtProveedorID.Text = "";
+            txtRuc.Text = "";
+            txtRazonSocial.Text = "";
+            txtTelefono.Text = "";
+            txtCorreo.Text = "";
+            txtDireccion.Text = "";
+            txtDescripcion.Text = "";
+            chkEstadoProveedor.Checked = false;
         }
     }
 }

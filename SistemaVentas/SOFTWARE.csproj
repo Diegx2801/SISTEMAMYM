@@ -64,17 +64,11 @@
     <Compile Include="BandejaPedidoCompra.Designer.cs">
       <DependentUpon>BandejaPedidoCompra.cs</DependentUpon>
     </Compile>
-    <Compile Include="BandejaRequerimientosForm.cs">
+    <Compile Include="BandejaRequerimientosCompras.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BandejaRequerimientosForm.Designer.cs">
-      <DependentUpon>BandejaRequerimientosForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmLogin.Designer.cs">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
+    <Compile Include="BandejaRequerimientosCompras.Designer.cs">
+      <DependentUpon>BandejaRequerimientosCompras.cs</DependentUpon>
     </Compile>
     <Compile Include="MantenedorFormaDePago.cs">
       <SubType>Form</SubType>
@@ -112,12 +106,6 @@
     <Compile Include="MantenedorTipoMaterial.Designer.cs">
       <DependentUpon>MantenedorTipoMaterial.cs</DependentUpon>
     </Compile>
-    <Compile Include="BandejaOrdenDeCompra.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BandejaOrdenDeCompra.Designer.cs">
-      <DependentUpon>BandejaOrdenDeCompra.cs</DependentUpon>
-    </Compile>
     <Compile Include="OrdenIngreso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,17 +126,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RequerimientoEditForm.cs">
+    <Compile Include="RegistrarRequerimientoCompra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RequerimientoEditForm.Designer.cs">
-      <DependentUpon>RequerimientoEditForm.cs</DependentUpon>
+    <Compile Include="RegistrarRequerimientoCompra.Designer.cs">
+      <DependentUpon>RegistrarRequerimientoCompra.cs</DependentUpon>
     </Compile>
-    <Compile Include="RequerimientosCompra.cs">
+    <Compile Include="RequerimientosCompras.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RequerimientosCompra.Designer.cs">
-      <DependentUpon>RequerimientosCompra.cs</DependentUpon>
+    <Compile Include="RequerimientosCompras.Designer.cs">
+      <DependentUpon>RequerimientosCompras.cs</DependentUpon>
     </Compile>
     <Compile Include="Sesion.cs" />
     <EmbeddedResource Include="BandejaOrdenIngreso.resx">
@@ -160,11 +148,8 @@
     <EmbeddedResource Include="BandejaPedidoCompra.resx">
       <DependentUpon>BandejaPedidoCompra.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BandejaRequerimientosForm.resx">
-      <DependentUpon>BandejaRequerimientosForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmLogin.resx">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="BandejaRequerimientosCompras.resx">
+      <DependentUpon>BandejaRequerimientosCompras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MantenedorFormaDePago.resx">
       <DependentUpon>MantenedorFormaDePago.cs</DependentUpon>
@@ -184,9 +169,6 @@
     <EmbeddedResource Include="MantenedorTipoMaterial.resx">
       <DependentUpon>MantenedorTipoMaterial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BandejaOrdenDeCompra.resx">
-      <DependentUpon>BandejaOrdenDeCompra.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="OrdenIngreso.resx">
       <DependentUpon>OrdenIngreso.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,11 +187,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="RequerimientoEditForm.resx">
-      <DependentUpon>RequerimientoEditForm.cs</DependentUpon>
+    <EmbeddedResource Include="RegistrarRequerimientoCompra.resx">
+      <DependentUpon>RegistrarRequerimientoCompra.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RequerimientosCompra.resx">
-      <DependentUpon>RequerimientosCompra.cs</DependentUpon>
+    <EmbeddedResource Include="RequerimientosCompras.resx">
+      <DependentUpon>RequerimientosCompras.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
