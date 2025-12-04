@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.grpFiltros = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboProveedor = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.lblEstado = new System.Windows.Forms.Label();
@@ -43,29 +43,29 @@
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.pnlAcciones = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnFormaPago = new System.Windows.Forms.Button();
             this.btnProv = new System.Windows.Forms.Button();
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnInicio = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.dgvRequerimientos = new System.Windows.Forms.DataGridView();
-            this.colNpedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colObservacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvPedidoCompra = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.PedidoCompraID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProveedorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Observacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpFiltros.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.pnlAcciones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRequerimientos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoCompra)).BeginInit();
             this.SuspendLayout();
             // 
             // grpFiltros
             // 
-            this.grpFiltros.Controls.Add(this.comboBox1);
+            this.grpFiltros.Controls.Add(this.cboProveedor);
             this.grpFiltros.Controls.Add(this.label4);
             this.grpFiltros.Controls.Add(this.comboBox2);
             this.grpFiltros.Controls.Add(this.lblEstado);
@@ -85,13 +85,13 @@
             this.grpFiltros.TabStop = false;
             this.grpFiltros.Text = "Filtros de búsqueda";
             // 
-            // comboBox1
+            // cboProveedor
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(166, 42);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 22;
+            this.cboProveedor.FormattingEnabled = true;
+            this.cboProveedor.Location = new System.Drawing.Point(166, 42);
+            this.cboProveedor.Name = "cboProveedor";
+            this.cboProveedor.Size = new System.Drawing.Size(121, 21);
+            this.cboProveedor.TabIndex = 22;
             // 
             // label4
             // 
@@ -221,6 +221,16 @@
             this.pnlAcciones.Size = new System.Drawing.Size(130, 555);
             this.pnlAcciones.TabIndex = 26;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(16, 126);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(91, 39);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "Anular";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(16, 236);
@@ -281,54 +291,23 @@
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = true;
             // 
-            // dgvRequerimientos
+            // dgvPedidoCompra
             // 
-            this.dgvRequerimientos.AllowUserToDeleteRows = false;
-            this.dgvRequerimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRequerimientos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colNpedido,
-            this.colFecha,
-            this.colProveedor,
-            this.colEstado,
-            this.colObservacion});
-            this.dgvRequerimientos.Location = new System.Drawing.Point(26, 126);
-            this.dgvRequerimientos.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvRequerimientos.Name = "dgvRequerimientos";
-            this.dgvRequerimientos.RowHeadersWidth = 51;
-            this.dgvRequerimientos.RowTemplate.Height = 24;
-            this.dgvRequerimientos.Size = new System.Drawing.Size(763, 380);
-            this.dgvRequerimientos.TabIndex = 25;
-            // 
-            // colNpedido
-            // 
-            this.colNpedido.HeaderText = "N° Pedido";
-            this.colNpedido.MinimumWidth = 6;
-            this.colNpedido.Name = "colNpedido";
-            this.colNpedido.Width = 80;
-            // 
-            // colFecha
-            // 
-            this.colFecha.HeaderText = "Fecha";
-            this.colFecha.MinimumWidth = 6;
-            this.colFecha.Name = "colFecha";
-            this.colFecha.Width = 135;
-            // 
-            // colProveedor
-            // 
-            this.colProveedor.HeaderText = "Proveedor";
-            this.colProveedor.Name = "colProveedor";
-            // 
-            // colEstado
-            // 
-            this.colEstado.HeaderText = "Estado";
-            this.colEstado.MinimumWidth = 6;
-            this.colEstado.Name = "colEstado";
-            this.colEstado.Width = 125;
-            // 
-            // colObservacion
-            // 
-            this.colObservacion.HeaderText = "Observación";
-            this.colObservacion.Name = "colObservacion";
+            this.dgvPedidoCompra.AllowUserToDeleteRows = false;
+            this.dgvPedidoCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPedidoCompra.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PedidoCompraID,
+            this.Fecha,
+            this.ProveedorID,
+            this.Estado,
+            this.Observacion});
+            this.dgvPedidoCompra.Location = new System.Drawing.Point(26, 126);
+            this.dgvPedidoCompra.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvPedidoCompra.Name = "dgvPedidoCompra";
+            this.dgvPedidoCompra.RowHeadersWidth = 51;
+            this.dgvPedidoCompra.RowTemplate.Height = 24;
+            this.dgvPedidoCompra.Size = new System.Drawing.Size(763, 380);
+            this.dgvPedidoCompra.TabIndex = 25;
             // 
             // label5
             // 
@@ -341,15 +320,41 @@
             this.label5.TabIndex = 29;
             this.label5.Text = "Bandeja Pedido de Compra";
             // 
-            // button2
+            // PedidoCompraID
             // 
-            this.button2.Location = new System.Drawing.Point(16, 126);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(91, 39);
-            this.button2.TabIndex = 26;
-            this.button2.Text = "Anular";
-            this.button2.UseVisualStyleBackColor = true;
+            this.PedidoCompraID.DataPropertyName = "PedidoCompraID";
+            this.PedidoCompraID.HeaderText = "N° Pedido";
+            this.PedidoCompraID.MinimumWidth = 6;
+            this.PedidoCompraID.Name = "PedidoCompraID";
+            this.PedidoCompraID.Width = 80;
+            // 
+            // Fecha
+            // 
+            this.Fecha.DataPropertyName = "Fecha";
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.MinimumWidth = 6;
+            this.Fecha.Name = "Fecha";
+            this.Fecha.Width = 135;
+            // 
+            // ProveedorID
+            // 
+            this.ProveedorID.DataPropertyName = "ProveedorID";
+            this.ProveedorID.HeaderText = "Proveedor";
+            this.ProveedorID.Name = "ProveedorID";
+            // 
+            // Estado
+            // 
+            this.Estado.DataPropertyName = "Estado";
+            this.Estado.HeaderText = "Estado";
+            this.Estado.MinimumWidth = 6;
+            this.Estado.Name = "Estado";
+            this.Estado.Width = 125;
+            // 
+            // Observacion
+            // 
+            this.Observacion.DataPropertyName = "Observacion";
+            this.Observacion.HeaderText = "Observación";
+            this.Observacion.Name = "Observacion";
             // 
             // BandejaPedidoCompra
             // 
@@ -360,15 +365,16 @@
             this.Controls.Add(this.grpFiltros);
             this.Controls.Add(this.statusBar);
             this.Controls.Add(this.pnlAcciones);
-            this.Controls.Add(this.dgvRequerimientos);
+            this.Controls.Add(this.dgvPedidoCompra);
             this.Name = "BandejaPedidoCompra";
             this.Text = "Bandeja Pedido Compra";
+            this.Load += new System.EventHandler(this.BandejaPedidoCompra_Load);
             this.grpFiltros.ResumeLayout(false);
             this.grpFiltros.PerformLayout();
             this.statusBar.ResumeLayout(false);
             this.statusBar.PerformLayout();
             this.pnlAcciones.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRequerimientos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPedidoCompra)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -394,16 +400,16 @@
         private System.Windows.Forms.Button btnAnular;
         private System.Windows.Forms.Button btnInicio;
         private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.DataGridView dgvRequerimientos;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridView dgvPedidoCompra;
+        private System.Windows.Forms.ComboBox cboProveedor;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNpedido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colObservacion;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PedidoCompraID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProveedorID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Observacion;
     }
 }

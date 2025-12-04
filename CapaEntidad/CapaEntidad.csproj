@@ -42,12 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="entDetordensalida.cs" />
+    <Compile Include="entDetPedidoCompra.cs" />
     <Compile Include="entDetReqCompra.cs" />
     <Compile Include="entFormapago.cs" />
     <Compile Include="entMarca.cs" />
     <Compile Include="entMaterial.cs" />
     <Compile Include="entObra.cs" />
     <Compile Include="entOrdensalida.cs" />
+    <Compile Include="entPedidoCompra.cs" />
     <Compile Include="entProveedor.cs" />
     <Compile Include="entReqCompra.cs" />
     <Compile Include="entTipomaterial.cs" />

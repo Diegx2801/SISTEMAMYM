@@ -16,7 +16,7 @@ namespace SistemaVentas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BandejaRequerimientosCompras());
+            Application.Run(new BandejaPedidoCompra());
         }
     }
 }
