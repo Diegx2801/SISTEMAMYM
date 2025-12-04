@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CapaEntidad;
 
 namespace CapaAccesoDatos
 {
@@ -256,6 +257,55 @@ namespace CapaAccesoDatos
             finally { if (cmd != null && cmd.Connection != null) cmd.Connection.Close(); }
             return ok;
         }
+        public List<MaterialReq> ObtenerMaterialesPorRequerimiento(int reqcompraID)
+        {
+            var materiales = new List<MaterialReq>();
+            SqlCommand cmd = null;
+
+            try
+            {
+                // Crear la conexión a la base de datos
+                SqlConnection cn = Conexion.Instancia.Conectar();
+
+                // Definir la consulta para obtener los detalles del requerimiento
+                string query = "SELECT MaterialID, NombreMaterial, UnidadMedida, Cantidad, Observacion FROM Detreqcompra WHERE ReqcompraID = @ReqcompraID";
+
+                cmd = new SqlCommand(query, cn);
+                cmd.Parameters.AddWithValue("@ReqcompraID", reqcompraID);
+
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    // Crear un objeto MaterialReq con los datos recuperados
+                    MaterialReq material = new MaterialReq
+                    {
+                        MaterialID = Convert.ToInt32(dr["MaterialID"]),
+                        NombreMaterial = dr["NombreMaterial"].ToString(),
+                        UnidadMedida = dr["UnidadMedida"].ToString(),
+                        Cantidad = Convert.ToDecimal(dr["Cantidad"]),
+                        Observacion = dr["Observacion"].ToString()
+                    };
+                    materiales.Add(material);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejar posibles errores
+                throw new Exception("Error al obtener materiales por requerimiento: " + ex.Message);
+            }
+            finally
+            {
+                // Cerrar la conexión
+                if (cmd != null && cmd.Connection != null)
+                    cmd.Connection.Close();
+            }
+
+            return materiales;
+        }
+
+
     }
 }
+
 
