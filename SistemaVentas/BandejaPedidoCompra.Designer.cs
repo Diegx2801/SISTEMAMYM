@@ -43,7 +43,7 @@
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.pnlAcciones = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnValidarPedido = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnFormaPago = new System.Windows.Forms.Button();
             this.btnProv = new System.Windows.Forms.Button();
@@ -51,12 +51,12 @@
             this.btnInicio = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.dgvPedidoCompra = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
             this.PedidoCompraID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProveedorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Observacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
             this.grpFiltros.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.pnlAcciones.SuspendLayout();
@@ -207,7 +207,7 @@
             // 
             // pnlAcciones
             // 
-            this.pnlAcciones.Controls.Add(this.button2);
+            this.pnlAcciones.Controls.Add(this.btnValidarPedido);
             this.pnlAcciones.Controls.Add(this.button1);
             this.pnlAcciones.Controls.Add(this.btnFormaPago);
             this.pnlAcciones.Controls.Add(this.btnProv);
@@ -221,15 +221,15 @@
             this.pnlAcciones.Size = new System.Drawing.Size(130, 555);
             this.pnlAcciones.TabIndex = 26;
             // 
-            // button2
+            // btnValidarPedido
             // 
-            this.button2.Location = new System.Drawing.Point(16, 126);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(91, 39);
-            this.button2.TabIndex = 26;
-            this.button2.Text = "Anular";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnValidarPedido.Location = new System.Drawing.Point(16, 126);
+            this.btnValidarPedido.Margin = new System.Windows.Forms.Padding(2);
+            this.btnValidarPedido.Name = "btnValidarPedido";
+            this.btnValidarPedido.Size = new System.Drawing.Size(91, 39);
+            this.btnValidarPedido.TabIndex = 26;
+            this.btnValidarPedido.Text = "Validar Pedido Compra";
+            this.btnValidarPedido.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -309,17 +309,6 @@
             this.dgvPedidoCompra.Size = new System.Drawing.Size(763, 380);
             this.dgvPedidoCompra.TabIndex = 25;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(348, 0);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(274, 26);
-            this.label5.TabIndex = 29;
-            this.label5.Text = "Bandeja Pedido de Compra";
-            // 
             // PedidoCompraID
             // 
             this.PedidoCompraID.DataPropertyName = "PedidoCompraID";
@@ -355,6 +344,17 @@
             this.Observacion.DataPropertyName = "Observacion";
             this.Observacion.HeaderText = "Observación";
             this.Observacion.Name = "Observacion";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(348, 0);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(274, 26);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "Bandeja Pedido de Compra";
             // 
             // BandejaPedidoCompra
             // 
@@ -405,7 +405,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnValidarPedido;
         private System.Windows.Forms.DataGridViewTextBoxColumn PedidoCompraID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProveedorID;
