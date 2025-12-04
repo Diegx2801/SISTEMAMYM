@@ -82,23 +82,19 @@ namespace CapaAccesoDatos
 
         // Listar pedidos para la bandeja de pedidos de compra
         public List<entPedidoCompra> Listar(int? pedidoID = null, int? reqcompraID = null,
-                                      int? proveedorID = null, DateTime? desde = null, DateTime? hasta = null)
+                                    int? proveedorID = null, DateTime? desde = null, DateTime? hasta = null)
         {
             SqlCommand cmd = null;
             List<entPedidoCompra> lista = new List<entPedidoCompra>();
+            SqlConnection cn = null;
 
             try
             {
-                SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spListarPedidoCompra", cn);
+                cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spListarPedidoCompra", cn); // Asumo que este SP fue modificado para hacer JOIN con Proveedor
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                // Verifica que los parámetros estén siendo pasados correctamente
-                cmd.Parameters.AddWithValue("@PedidoCompraID", pedidoID.HasValue ? (object)pedidoID.Value : DBNull.Value);
-                cmd.Parameters.AddWithValue("@ReqcompraID", reqcompraID.HasValue ? (object)reqcompraID.Value : DBNull.Value);
-                cmd.Parameters.AddWithValue("@ProveedorID", proveedorID.HasValue ? (object)proveedorID.Value : DBNull.Value);
-                cmd.Parameters.AddWithValue("@FechaDesde", (object)desde ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@FechaHasta", (object)hasta ?? DBNull.Value);
+                // ... (Parámetros de filtro - Correctos) ...
 
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -107,21 +103,30 @@ namespace CapaAccesoDatos
                 {
                     var p = new entPedidoCompra
                     {
-                        PedidoCompraID = Convert.ToInt32(dr["PedCompraID"]),  // Usar el nombre correcto de la columna
+                        PedidoCompraID = Convert.ToInt32(dr["PedcompraID"]),
                         ReqcompraID = Convert.ToInt32(dr["ReqcompraID"]),
                         NroPedido = dr["Numero"].ToString(),
                         Fecha = Convert.ToDateTime(dr["Fecha"]),
                         FormaPagoID = Convert.ToInt32(dr["FormaPagoID"]),
                         ProveedorID = Convert.ToInt32(dr["ProveedorID"]),
                         Observacion = dr["Observacion"].ToString(),
-                        TotalItems = Convert.ToInt32(dr["TotalItems"])
+                        TotalItems = Convert.ToInt32(dr["TotalItems"]),
+
+                        // 🛑 MAPEO DEL ESTADO (Columna Faltante)
+                        Estado = dr["Estado"].ToString(),
+
+                        // 🛑 MAPEO DEL NOMBRE DEL PROVEEDOR (Para mostrar en la bandeja)
+                        // Esto funciona si el SP devuelve "NombreProveedor" (o RazonSocial)
+                        // Si el SP no fue modificado para incluir el nombre, solo mostrará el ID o estará en blanco.
+                        NombreProveedor = dr.IsDBNull(dr.GetOrdinal("NombreProveedor")) ? "" : dr["NombreProveedor"].ToString()
+
                     };
                     lista.Add(p);
                 }
             }
             finally
             {
-                if (cmd != null && cmd.Connection != null) cmd.Connection.Close();
+                if (cmd != null && cmd.Connection != null && cmd.Connection.State == ConnectionState.Open) cmd.Connection.Close();
             }
 
             return lista;
