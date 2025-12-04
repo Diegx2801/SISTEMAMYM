@@ -34,21 +34,21 @@
             this.colProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpFiltros = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbProveedor = new System.Windows.Forms.ComboBox();
+            this.lblProveedor = new System.Windows.Forms.Label();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.lblEstado = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblHasta = new System.Windows.Forms.Label();
+            this.lblDesde = new System.Windows.Forms.Label();
+            this.lblPedido = new System.Windows.Forms.Label();
             this.btnInicio = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblBandejaOrdenIngreso = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequerimientos)).BeginInit();
             this.grpFiltros.SuspendLayout();
@@ -99,17 +99,17 @@
             // 
             // grpFiltros
             // 
-            this.grpFiltros.Controls.Add(this.comboBox1);
-            this.grpFiltros.Controls.Add(this.label4);
-            this.grpFiltros.Controls.Add(this.comboBox2);
+            this.grpFiltros.Controls.Add(this.cmbProveedor);
+            this.grpFiltros.Controls.Add(this.lblProveedor);
+            this.grpFiltros.Controls.Add(this.cmbEstado);
             this.grpFiltros.Controls.Add(this.lblEstado);
             this.grpFiltros.Controls.Add(this.txtBuscar);
             this.grpFiltros.Controls.Add(this.dtpDesde);
             this.grpFiltros.Controls.Add(this.dtpHasta);
             this.grpFiltros.Controls.Add(this.btnBuscar);
-            this.grpFiltros.Controls.Add(this.label2);
-            this.grpFiltros.Controls.Add(this.label3);
-            this.grpFiltros.Controls.Add(this.label5);
+            this.grpFiltros.Controls.Add(this.lblHasta);
+            this.grpFiltros.Controls.Add(this.lblDesde);
+            this.grpFiltros.Controls.Add(this.lblPedido);
             this.grpFiltros.Location = new System.Drawing.Point(31, 61);
             this.grpFiltros.Margin = new System.Windows.Forms.Padding(2);
             this.grpFiltros.Name = "grpFiltros";
@@ -119,31 +119,31 @@
             this.grpFiltros.TabStop = false;
             this.grpFiltros.Text = "Filtros de búsqueda";
             // 
-            // comboBox1
+            // cmbProveedor
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(166, 42);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 22;
+            this.cmbProveedor.FormattingEnabled = true;
+            this.cmbProveedor.Location = new System.Drawing.Point(166, 42);
+            this.cmbProveedor.Name = "cmbProveedor";
+            this.cmbProveedor.Size = new System.Drawing.Size(121, 21);
+            this.cmbProveedor.TabIndex = 22;
             // 
-            // label4
+            // lblProveedor
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(163, 24);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 13);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "Proveedor:";
+            this.lblProveedor.AutoSize = true;
+            this.lblProveedor.Location = new System.Drawing.Point(163, 24);
+            this.lblProveedor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblProveedor.Name = "lblProveedor";
+            this.lblProveedor.Size = new System.Drawing.Size(59, 13);
+            this.lblProveedor.TabIndex = 21;
+            this.lblProveedor.Text = "Proveedor:";
             // 
-            // comboBox2
+            // cmbEstado
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(315, 42);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 19;
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Location = new System.Drawing.Point(315, 42);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(121, 21);
+            this.cmbEstado.TabIndex = 19;
             // 
             // lblEstado
             // 
@@ -191,35 +191,35 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // lblHasta
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(567, 28);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Hasta";
+            this.lblHasta.AutoSize = true;
+            this.lblHasta.Location = new System.Drawing.Point(567, 28);
+            this.lblHasta.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblHasta.Name = "lblHasta";
+            this.lblHasta.Size = new System.Drawing.Size(35, 13);
+            this.lblHasta.TabIndex = 6;
+            this.lblHasta.Text = "Hasta";
             // 
-            // label3
+            // lblDesde
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(455, 28);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Desde";
+            this.lblDesde.AutoSize = true;
+            this.lblDesde.Location = new System.Drawing.Point(455, 28);
+            this.lblDesde.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDesde.Name = "lblDesde";
+            this.lblDesde.Size = new System.Drawing.Size(38, 13);
+            this.lblDesde.TabIndex = 5;
+            this.lblDesde.Text = "Desde";
             // 
-            // label5
+            // lblPedido
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 24);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(109, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Buscar por N° Pedido";
+            this.lblPedido.AutoSize = true;
+            this.lblPedido.Location = new System.Drawing.Point(14, 24);
+            this.lblPedido.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPedido.Name = "lblPedido";
+            this.lblPedido.Size = new System.Drawing.Size(109, 13);
+            this.lblPedido.TabIndex = 8;
+            this.lblPedido.Text = "Buscar por N° Pedido";
             // 
             // btnInicio
             // 
@@ -251,16 +251,16 @@
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // lblBandejaOrdenIngreso
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(360, 20);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(262, 26);
-            this.label1.TabIndex = 44;
-            this.label1.Text = "Bandeja Orden de Ingreso";
+            this.lblBandejaOrdenIngreso.AutoSize = true;
+            this.lblBandejaOrdenIngreso.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBandejaOrdenIngreso.Location = new System.Drawing.Point(360, 20);
+            this.lblBandejaOrdenIngreso.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblBandejaOrdenIngreso.Name = "lblBandejaOrdenIngreso";
+            this.lblBandejaOrdenIngreso.Size = new System.Drawing.Size(262, 26);
+            this.lblBandejaOrdenIngreso.TabIndex = 44;
+            this.lblBandejaOrdenIngreso.Text = "Bandeja Orden de Ingreso";
             // 
             // button1
             // 
@@ -283,7 +283,7 @@
             this.Controls.Add(this.btnInicio);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnImprimir);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblBandejaOrdenIngreso);
             this.Name = "BandejaOrdenIngreso";
             this.Text = "BandejaOrdenIngreso";
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequerimientos)).EndInit();
@@ -302,21 +302,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colProveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
         private System.Windows.Forms.GroupBox grpFiltros;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbProveedor;
+        private System.Windows.Forms.Label lblProveedor;
+        private System.Windows.Forms.ComboBox cmbEstado;
         private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.DateTimePicker dtpDesde;
         private System.Windows.Forms.DateTimePicker dtpHasta;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblHasta;
+        private System.Windows.Forms.Label lblDesde;
+        private System.Windows.Forms.Label lblPedido;
         private System.Windows.Forms.Button btnInicio;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnImprimir;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblBandejaOrdenIngreso;
         private System.Windows.Forms.Button button1;
     }
 }
