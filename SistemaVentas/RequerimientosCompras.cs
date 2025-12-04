@@ -99,7 +99,7 @@ namespace SistemaVentas
             int reqcompraID = Convert.ToInt32(dgvRequerimientos.CurrentRow.Cells["ReqcompraID"].Value);
 
             // Definir la ruta donde se guardará el archivo PDF
-            string pdfFilePath = $"D:\\DIEGO\\DOCUMENTOS\\Requerimiento_{reqcompraID}.pdf";
+            string pdfFilePath = $"C:\\Users\\PAUL\\Downloads\\SISTEMAMYM\\Requerimiento_{reqcompraID}.pdf";
 
             // Crear el documento PDF
             Document doc = new Document(PageSize.A4);
