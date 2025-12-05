@@ -16,10 +16,36 @@ namespace CapaLogica
         #endregion
 
         // Registra cabecera + detalles (omisión por brevedad)
+        // Registra cabecera + detalles usando los detalles del requerimiento
         public bool RegistrarPedido(entPedidoCompra p, List<entDetPedidoCompra> detallesReq)
         {
-            // ... (Tu lógica de registro de pedidos) ...
-            return false;
+            try
+            {
+                p.TotalItems = detallesReq.Count;
+
+                int pedidoID = datPedidoCompra.Instancia.InsertarPedido(p);
+
+                foreach (var d in detallesReq)
+                {
+                    var det = new entDetPedidoCompra
+                    {
+                        PedidoCompraID = pedidoID,
+                        MaterialID = d.MaterialID,
+                        NombreMaterial = d.NombreMaterial,
+                        UnidadMedida = d.UnidadMedida,
+                        Cantidad = d.Cantidad,
+                        Observacion = d.Observacion
+                    };
+
+                    datPedidoCompra.Instancia.InsertarDetalle(det, pedidoID);
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public List<entPedidoCompra> Listar(int? pedidoID = null, int? reqcompraID = null,

@@ -12,6 +12,70 @@ namespace CapaAccesoDatos
     public class datPedidoCompra
     {
         #region singleton
+
+        // Inserta cabecera de Pedido de Compra
+        public int InsertarPedido(entPedidoCompra p)
+        {
+            SqlCommand cmd = null;
+            int idGenerado = 0;
+
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spInsertarPedidoCompra", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                // Asegúrate de que solo pasas los parámetros correctos
+                cmd.Parameters.AddWithValue("@ReqcompraID", p.ReqcompraID);
+                cmd.Parameters.AddWithValue("@Fecha", p.Fecha);
+                cmd.Parameters.AddWithValue("@FormaPagoID", p.FormaPagoID);
+                cmd.Parameters.AddWithValue("@ProveedorID", p.ProveedorID);
+                cmd.Parameters.AddWithValue("@Observacion", string.IsNullOrEmpty(p.Observacion) ? (object)DBNull.Value : p.Observacion);
+                cmd.Parameters.AddWithValue("@TotalItems", p.TotalItems);
+
+                SqlParameter pID = new SqlParameter("@PedidoCompraID", SqlDbType.Int);
+                pID.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(pID);
+
+                cn.Open();
+                cmd.ExecuteNonQuery();
+
+                idGenerado = Convert.ToInt32(cmd.Parameters["@PedidoCompraID"].Value);
+            }
+            finally
+            {
+                if (cmd != null && cmd.Connection != null) cmd.Connection.Close();
+            }
+
+            return idGenerado;
+        }
+
+        public void InsertarDetalle(entDetPedidoCompra d, int pedcompraID)
+        {
+            SqlCommand cmd = null;
+
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spInsertarDetPedcompra", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                // Parametrización con la nueva propiedad
+                cmd.Parameters.AddWithValue("@PedcompraID", pedcompraID);
+                cmd.Parameters.AddWithValue("@MaterialID", d.MaterialID);
+                cmd.Parameters.AddWithValue("@NombreMaterial", d.NombreMaterial);  // Se agrega el nombre del material
+                cmd.Parameters.AddWithValue("@UnidadMedida", d.UnidadMedida);
+                cmd.Parameters.AddWithValue("@Cantidad", d.Cantidad);
+                cmd.Parameters.AddWithValue("@Observacion", string.IsNullOrEmpty(d.Observacion) ? (object)DBNull.Value : d.Observacion);
+
+                cn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                if (cmd != null && cmd.Connection != null) cmd.Connection.Close();
+            }
+        }
         private static readonly datPedidoCompra _instancia = new datPedidoCompra();
         public static datPedidoCompra Instancia { get { return _instancia; } }
         #endregion
@@ -98,6 +162,7 @@ namespace CapaAccesoDatos
                 if (cmd != null && cmd.Connection != null && cmd.Connection.State == ConnectionState.Open) cmd.Connection.Close();
             }
         }
+        
 
         // -----------------------------------------------------
         // MÉTODO LISTAR (Lectura) - COMPLETO

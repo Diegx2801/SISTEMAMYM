@@ -1,4 +1,5 @@
-﻿using CapaLogica;
+﻿using CapaEntidad;
+using CapaLogica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -89,6 +90,55 @@ namespace SistemaVentas
                     CargarBandeja();
                 }
             }
+        }
+
+        private void btnAnular_Click(object sender, EventArgs e)
+        {
+            // 1. Verificar si hay alguna fila seleccionada
+            if (dgvRequerimientosCompras.CurrentRow == null)
+            {
+                MessageBox.Show("Debe seleccionar un Requerimiento para anular.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                // Obtener el objeto seleccionado
+                // Se asume que el DataSource del DGV es una lista de la entidad de Requerimiento (entReqcompra)
+                entReqcompra reqSeleccionado = (entReqcompra)dgvRequerimientosCompras.CurrentRow.DataBoundItem;
+                int reqID = reqSeleccionado.ReqcompraID;
+                string estadoActual = reqSeleccionado.Estado;
+
+                // 2. Validar que el estado sea anulable (ej: Registrado o Enviado)
+                if (estadoActual == "Anulado" || estadoActual == "Cerrado")
+                {
+                    MessageBox.Show($"Solo se pueden anular requerimientos en estado Pendiente o Enviado. Estado actual: {estadoActual}", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // 3. Confirmación de Usuario
+                string mensaje = $"¿Está seguro de ANULAR el Requerimiento N° {reqID}?";
+
+                if (MessageBox.Show(mensaje, "Confirmar Anulación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    // 4. Llamar a la Capa Lógica para cambiar el estado en la BD
+                    // Nota: Este método solo actualiza el estado a 'Anulado'
+                    logReqcompra.Instancia.Anular(reqID);
+
+                    MessageBox.Show("Requerimiento de Compra anulado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // 5. Refrescar la bandeja (para ver el estado 'Anulado')
+                    CargarBandeja();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al anular el Requerimiento: " + ex.Message, "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void btnPedidoCompra_Click(object sender, EventArgs e)
+        {
+            new BandejaPedidoCompra().ShowDialog();
         }
     }
 }

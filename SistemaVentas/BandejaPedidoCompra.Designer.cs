@@ -45,10 +45,7 @@
             this.pnlAcciones = new System.Windows.Forms.Panel();
             this.btnValidarPedido = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnFormaPago = new System.Windows.Forms.Button();
-            this.btnProv = new System.Windows.Forms.Button();
             this.btnAnular = new System.Windows.Forms.Button();
-            this.btnInicio = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.dgvPedidoCompra = new System.Windows.Forms.DataGridView();
             this.PedidoCompraID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -210,10 +207,7 @@
             // 
             this.pnlAcciones.Controls.Add(this.btnValidarPedido);
             this.pnlAcciones.Controls.Add(this.button1);
-            this.pnlAcciones.Controls.Add(this.btnFormaPago);
-            this.pnlAcciones.Controls.Add(this.btnProv);
             this.pnlAcciones.Controls.Add(this.btnAnular);
-            this.pnlAcciones.Controls.Add(this.btnInicio);
             this.pnlAcciones.Controls.Add(this.btnCerrar);
             this.pnlAcciones.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlAcciones.Location = new System.Drawing.Point(864, 0);
@@ -243,26 +237,6 @@
             this.button1.Text = "Imprimir";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // btnFormaPago
-            // 
-            this.btnFormaPago.Location = new System.Drawing.Point(20, 384);
-            this.btnFormaPago.Margin = new System.Windows.Forms.Padding(2);
-            this.btnFormaPago.Name = "btnFormaPago";
-            this.btnFormaPago.Size = new System.Drawing.Size(91, 25);
-            this.btnFormaPago.TabIndex = 24;
-            this.btnFormaPago.Text = "Formas de pago";
-            this.btnFormaPago.UseVisualStyleBackColor = true;
-            // 
-            // btnProv
-            // 
-            this.btnProv.Location = new System.Drawing.Point(20, 342);
-            this.btnProv.Margin = new System.Windows.Forms.Padding(2);
-            this.btnProv.Name = "btnProv";
-            this.btnProv.Size = new System.Drawing.Size(91, 25);
-            this.btnProv.TabIndex = 19;
-            this.btnProv.Text = "Proveedores";
-            this.btnProv.UseVisualStyleBackColor = true;
-            // 
             // btnAnular
             // 
             this.btnAnular.Location = new System.Drawing.Point(20, 176);
@@ -273,16 +247,6 @@
             this.btnAnular.Text = "Anular";
             this.btnAnular.UseVisualStyleBackColor = true;
             this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
-            // 
-            // btnInicio
-            // 
-            this.btnInicio.Location = new System.Drawing.Point(37, 427);
-            this.btnInicio.Margin = new System.Windows.Forms.Padding(2);
-            this.btnInicio.Name = "btnInicio";
-            this.btnInicio.Size = new System.Drawing.Size(56, 19);
-            this.btnInicio.TabIndex = 16;
-            this.btnInicio.Text = "INICIO";
-            this.btnInicio.UseVisualStyleBackColor = true;
             // 
             // btnCerrar
             // 
@@ -398,10 +362,7 @@
         private System.Windows.Forms.StatusStrip statusBar;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Panel pnlAcciones;
-        private System.Windows.Forms.Button btnFormaPago;
-        private System.Windows.Forms.Button btnProv;
         private System.Windows.Forms.Button btnAnular;
-        private System.Windows.Forms.Button btnInicio;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.DataGridView dgvPedidoCompra;
         private System.Windows.Forms.ComboBox cboProveedorFiltro;

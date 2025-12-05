@@ -30,21 +30,10 @@
         {
             this.pnlAcciones = new System.Windows.Forms.Panel();
             this.btnPedidoCompra = new System.Windows.Forms.Button();
-            this.btnFormaPago = new System.Windows.Forms.Button();
-            this.btnProv = new System.Windows.Forms.Button();
             this.btnAnular = new System.Windows.Forms.Button();
-            this.btnInicio = new System.Windows.Forms.Button();
             this.btnAtender = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.dgvRequerimientosCompras = new System.Windows.Forms.DataGridView();
-            this.ReqcompraID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ObraID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Solicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Prioridad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Observacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EstadoAtender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colItems = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.grpFiltros = new System.Windows.Forms.GroupBox();
@@ -60,6 +49,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.ReqcompraID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ObraID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Solicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Prioridad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Observacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlAcciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequerimientosCompras)).BeginInit();
             this.statusBar.SuspendLayout();
@@ -69,10 +65,7 @@
             // pnlAcciones
             // 
             this.pnlAcciones.Controls.Add(this.btnPedidoCompra);
-            this.pnlAcciones.Controls.Add(this.btnFormaPago);
-            this.pnlAcciones.Controls.Add(this.btnProv);
             this.pnlAcciones.Controls.Add(this.btnAnular);
-            this.pnlAcciones.Controls.Add(this.btnInicio);
             this.pnlAcciones.Controls.Add(this.btnAtender);
             this.pnlAcciones.Controls.Add(this.btnCerrar);
             this.pnlAcciones.Dock = System.Windows.Forms.DockStyle.Right;
@@ -91,28 +84,7 @@
             this.btnPedidoCompra.TabIndex = 25;
             this.btnPedidoCompra.Text = "PedidoCompra";
             this.btnPedidoCompra.UseVisualStyleBackColor = true;
-            // 
-            // btnFormaPago
-            // 
-            this.btnFormaPago.Location = new System.Drawing.Point(18, 304);
-            this.btnFormaPago.Margin = new System.Windows.Forms.Padding(2);
-            this.btnFormaPago.Name = "btnFormaPago";
-            this.btnFormaPago.Size = new System.Drawing.Size(91, 25);
-            this.btnFormaPago.TabIndex = 24;
-            this.btnFormaPago.Text = "Formas de pago";
-            this.btnFormaPago.UseVisualStyleBackColor = true;
-            this.btnFormaPago.Click += new System.EventHandler(this.btnFormaPago_Click);
-            // 
-            // btnProv
-            // 
-            this.btnProv.Location = new System.Drawing.Point(18, 265);
-            this.btnProv.Margin = new System.Windows.Forms.Padding(2);
-            this.btnProv.Name = "btnProv";
-            this.btnProv.Size = new System.Drawing.Size(91, 25);
-            this.btnProv.TabIndex = 19;
-            this.btnProv.Text = "Proveedores";
-            this.btnProv.UseVisualStyleBackColor = true;
-            this.btnProv.Click += new System.EventHandler(this.btnProv_Click);
+            this.btnPedidoCompra.Click += new System.EventHandler(this.btnPedidoCompra_Click);
             // 
             // btnAnular
             // 
@@ -123,17 +95,7 @@
             this.btnAnular.TabIndex = 18;
             this.btnAnular.Text = "Anular";
             this.btnAnular.UseVisualStyleBackColor = true;
-            // 
-            // btnInicio
-            // 
-            this.btnInicio.Location = new System.Drawing.Point(39, 487);
-            this.btnInicio.Margin = new System.Windows.Forms.Padding(2);
-            this.btnInicio.Name = "btnInicio";
-            this.btnInicio.Size = new System.Drawing.Size(56, 19);
-            this.btnInicio.TabIndex = 16;
-            this.btnInicio.Text = "INICIO";
-            this.btnInicio.UseVisualStyleBackColor = true;
-            this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
+            this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
             // 
             // btnAtender
             // 
@@ -167,8 +129,7 @@
             this.Solicitante,
             this.Prioridad,
             this.Observacion,
-            this.EstadoAtender,
-            this.colItems});
+            this.Estado});
             this.dgvRequerimientosCompras.Location = new System.Drawing.Point(19, 126);
             this.dgvRequerimientosCompras.Margin = new System.Windows.Forms.Padding(2);
             this.dgvRequerimientosCompras.Name = "dgvRequerimientosCompras";
@@ -176,65 +137,6 @@
             this.dgvRequerimientosCompras.RowTemplate.Height = 24;
             this.dgvRequerimientosCompras.Size = new System.Drawing.Size(881, 380);
             this.dgvRequerimientosCompras.TabIndex = 20;
-            // 
-            // ReqcompraID
-            // 
-            this.ReqcompraID.DataPropertyName = "ReqcompraID";
-            this.ReqcompraID.HeaderText = "N° Req";
-            this.ReqcompraID.MinimumWidth = 6;
-            this.ReqcompraID.Name = "ReqcompraID";
-            this.ReqcompraID.Width = 80;
-            // 
-            // ObraID
-            // 
-            this.ObraID.DataPropertyName = "ObraID";
-            this.ObraID.HeaderText = "Obra";
-            this.ObraID.MinimumWidth = 6;
-            this.ObraID.Name = "ObraID";
-            this.ObraID.Width = 160;
-            // 
-            // Fecha
-            // 
-            this.Fecha.DataPropertyName = "Fecha";
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.MinimumWidth = 6;
-            this.Fecha.Name = "Fecha";
-            this.Fecha.Width = 135;
-            // 
-            // Solicitante
-            // 
-            this.Solicitante.DataPropertyName = "Solicitante";
-            this.Solicitante.HeaderText = "Solicitante";
-            this.Solicitante.MinimumWidth = 6;
-            this.Solicitante.Name = "Solicitante";
-            this.Solicitante.Width = 150;
-            // 
-            // Prioridad
-            // 
-            this.Prioridad.DataPropertyName = "Prioridad";
-            this.Prioridad.HeaderText = "Prioridad";
-            this.Prioridad.MinimumWidth = 6;
-            this.Prioridad.Name = "Prioridad";
-            this.Prioridad.Width = 125;
-            // 
-            // Observacion
-            // 
-            this.Observacion.DataPropertyName = "Observacion";
-            this.Observacion.HeaderText = "Observacion";
-            this.Observacion.Name = "Observacion";
-            // 
-            // EstadoAtender
-            // 
-            this.EstadoAtender.DataPropertyName = "EstadoAtender";
-            this.EstadoAtender.HeaderText = "Estado";
-            this.EstadoAtender.Name = "EstadoAtender";
-            // 
-            // colItems
-            // 
-            this.colItems.HeaderText = "Ítems";
-            this.colItems.MinimumWidth = 6;
-            this.colItems.Name = "colItems";
-            this.colItems.Width = 60;
             // 
             // statusBar
             // 
@@ -389,6 +291,58 @@
             this.label4.TabIndex = 25;
             this.label4.Text = "Atender Requerimiento de Compra (Compras)";
             // 
+            // ReqcompraID
+            // 
+            this.ReqcompraID.DataPropertyName = "ReqcompraID";
+            this.ReqcompraID.HeaderText = "N° Req";
+            this.ReqcompraID.MinimumWidth = 6;
+            this.ReqcompraID.Name = "ReqcompraID";
+            this.ReqcompraID.Width = 80;
+            // 
+            // ObraID
+            // 
+            this.ObraID.DataPropertyName = "ObraID";
+            this.ObraID.HeaderText = "Obra";
+            this.ObraID.MinimumWidth = 6;
+            this.ObraID.Name = "ObraID";
+            this.ObraID.Width = 160;
+            // 
+            // Fecha
+            // 
+            this.Fecha.DataPropertyName = "Fecha";
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.MinimumWidth = 6;
+            this.Fecha.Name = "Fecha";
+            this.Fecha.Width = 135;
+            // 
+            // Solicitante
+            // 
+            this.Solicitante.DataPropertyName = "Solicitante";
+            this.Solicitante.HeaderText = "Solicitante";
+            this.Solicitante.MinimumWidth = 6;
+            this.Solicitante.Name = "Solicitante";
+            this.Solicitante.Width = 150;
+            // 
+            // Prioridad
+            // 
+            this.Prioridad.DataPropertyName = "Prioridad";
+            this.Prioridad.HeaderText = "Prioridad";
+            this.Prioridad.MinimumWidth = 6;
+            this.Prioridad.Name = "Prioridad";
+            this.Prioridad.Width = 125;
+            // 
+            // Observacion
+            // 
+            this.Observacion.DataPropertyName = "Observacion";
+            this.Observacion.HeaderText = "Observacion";
+            this.Observacion.Name = "Observacion";
+            // 
+            // Estado
+            // 
+            this.Estado.DataPropertyName = "Estado";
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            // 
             // BandejaRequerimientosCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -417,15 +371,12 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlAcciones;
-        private System.Windows.Forms.Button btnInicio;
         private System.Windows.Forms.Button btnAtender;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.DataGridView dgvRequerimientosCompras;
         private System.Windows.Forms.Button btnAnular;
         private System.Windows.Forms.StatusStrip statusBar;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.Button btnFormaPago;
-        private System.Windows.Forms.Button btnProv;
         private System.Windows.Forms.GroupBox grpFiltros;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox cboObra;
@@ -446,7 +397,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Solicitante;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prioridad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Observacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EstadoAtender;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colItems;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
     }
 }

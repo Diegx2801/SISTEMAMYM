@@ -15,7 +15,7 @@ namespace SistemaVentas
     public partial class PedidoCompra : Form
     {
         private int _reqcompraID;
-        public List<entDetPedidoCompra> _detalles;
+        private List<entDetPedidoCompra> _detalles;
         public PedidoCompra(int reqcompraID)
         {
             InitializeComponent();
@@ -31,20 +31,20 @@ namespace SistemaVentas
             var listaFormasPago = logFormapago.Instancia.ListarFormapago();
 
             cboFormaPago.DataSource = listaFormasPago;
-            cboFormaPago.DisplayMember = "Descripcion"; 
-            cboFormaPago.ValueMember = "FormaPagoID"; 
+            cboFormaPago.DisplayMember = "Descripcion"; // o cualquier campo relevante
+            cboFormaPago.ValueMember = "FormaPagoID";  // Valor que se usará internamente
 
-            cboFormaPago.SelectedIndex = -1; 
+            cboFormaPago.SelectedIndex = -1; // Deja el combo vacío para selección
         }
         private void CargarComboProveedores()
         {
             var listaProveedores = logProveedor.Instancia.ListarProveedor();
 
             cboProveedor.DataSource = listaProveedores;
-            cboProveedor.DisplayMember = "RazonSocial"; 
-            cboProveedor.ValueMember = "ProveedorID";  
+            cboProveedor.DisplayMember = "RazonSocial"; // o el campo que consideres importante
+            cboProveedor.ValueMember = "ProveedorID";  // Valor que se usará internamente
 
-            cboProveedor.SelectedIndex = -1; 
+            cboProveedor.SelectedIndex = -1; // Deja el combo vacío para selección
         }
         private void PedidoCompra_Load(object sender, EventArgs e)
         {
@@ -68,7 +68,7 @@ namespace SistemaVentas
                             }).ToList();
 
             dgvDetalles.DataSource = _detalles;
-            txtTotalItems.Text = _detalles.Count.ToString(); 
+            txtTotalItems.Text = _detalles.Count.ToString(); // el textbox "Total Items"
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -88,7 +88,7 @@ namespace SistemaVentas
                 Observacion = txtObservaciones.Text.Trim()
             };
 
-            
+            // Ahora solo pasamos los parámetros necesarios
             bool ok = logPedidoCompra.Instancia.RegistrarPedido(pedido, _detalles);
 
             if (ok)
