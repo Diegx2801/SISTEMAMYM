@@ -51,6 +51,7 @@
     <Compile Include="logMarca.cs" />
     <Compile Include="logMaterial.cs" />
     <Compile Include="logObra.cs" />
+    <Compile Include="logOrdeningreso.cs" />
     <Compile Include="logOrdensalida.cs" />
     <Compile Include="logPedidoCompra.cs" />
     <Compile Include="logProveedor.cs" />

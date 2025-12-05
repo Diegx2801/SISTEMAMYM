@@ -16,73 +16,95 @@ namespace CapaAccesoDatos
         public static datPedidoCompra Instancia { get { return _instancia; } }
         #endregion
 
-        // Inserta cabecera de Pedido de Compra
-        public int InsertarPedido(entPedidoCompra p)
+        // -----------------------------------------------------
+        // MÉTODOS DE ACCIÓN (APROBAR y ANULAR) - Implementación Faltante
+        // -----------------------------------------------------
+
+        // Resuelve CS1061 para AprobarPedido
+        public void AprobarPedido(int pedidoID)
         {
             SqlCommand cmd = null;
-            int idGenerado = 0;
-
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spInsertarPedidoCompra", cn);
+                cmd = new SqlCommand("spAprobarPedido", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-
-                // Asegúrate de que solo pasas los parámetros correctos
-                cmd.Parameters.AddWithValue("@ReqcompraID", p.ReqcompraID);
-                cmd.Parameters.AddWithValue("@Fecha", p.Fecha);
-                cmd.Parameters.AddWithValue("@FormaPagoID", p.FormaPagoID);
-                cmd.Parameters.AddWithValue("@ProveedorID", p.ProveedorID);
-                cmd.Parameters.AddWithValue("@Observacion", string.IsNullOrEmpty(p.Observacion) ? (object)DBNull.Value : p.Observacion);
-                cmd.Parameters.AddWithValue("@TotalItems", p.TotalItems);
-
-                SqlParameter pID = new SqlParameter("@PedidoCompraID", SqlDbType.Int);
-                pID.Direction = ParameterDirection.Output;
-                cmd.Parameters.Add(pID);
-
+                cmd.Parameters.AddWithValue("@PedidoCompraID", pedidoID);
                 cn.Open();
                 cmd.ExecuteNonQuery();
-
-                idGenerado = Convert.ToInt32(cmd.Parameters["@PedidoCompraID"].Value);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al ejecutar AprobarPedido en la Capa de Datos: " + e.Message);
             }
             finally
             {
-                if (cmd != null && cmd.Connection != null) cmd.Connection.Close();
+                if (cmd != null && cmd.Connection != null && cmd.Connection.State == ConnectionState.Open) cmd.Connection.Close();
             }
-
-            return idGenerado;
         }
-
-        public void InsertarDetalle(entDetPedidoCompra d, int pedcompraID)
+        public List<entPedidoCompra> ListarPedidosAprobados()
         {
             SqlCommand cmd = null;
+            List<entPedidoCompra> lista = new List<entPedidoCompra>();
+            SqlConnection cn = null; // Asumo que se declara fuera del try
 
             try
             {
-                SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spInsertarDetPedcompra", cn);
+                cn = Conexion.Instancia.Conectar();
+                // Llama al SP que filtra por Estado = 'Aprobado' (spListarPedidosAprobados)
+                cmd = new SqlCommand("spListarPedidosAprobados", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
 
-                // Parametrización con la nueva propiedad
-                cmd.Parameters.AddWithValue("@PedcompraID", pedcompraID);
-                cmd.Parameters.AddWithValue("@MaterialID", d.MaterialID);
-                cmd.Parameters.AddWithValue("@NombreMaterial", d.NombreMaterial);  // Se agrega el nombre del material
-                cmd.Parameters.AddWithValue("@UnidadMedida", d.UnidadMedida);
-                cmd.Parameters.AddWithValue("@Cantidad", d.Cantidad);
-                cmd.Parameters.AddWithValue("@Observacion", string.IsNullOrEmpty(d.Observacion) ? (object)DBNull.Value : d.Observacion);
+                while (dr.Read())
+                {
+                    // Mapeamos solo los campos necesarios para la selección en el formulario de registro
+                    lista.Add(new entPedidoCompra
+                    {
+                        PedidoCompraID = Convert.ToInt32(dr["PedcompraID"]),
+                        NroPedido = dr["NroPedido"].ToString(),
+                        Fecha = Convert.ToDateTime(dr["Fecha"]),
+                        NombreProveedor = dr["NombreProveedor"].ToString(),
+                        Estado = "Aprobado"
+                        // Se asume que las columnas PedcompraID, NroPedido, Fecha, NombreProveedor son devueltas por el SP.
+                    });
+                }
+            }
+            catch (Exception e) { throw new Exception("Error al listar Pedidos Aprobados: " + e.Message); }
+            finally { if (cmd != null && cmd.Connection.State == ConnectionState.Open) cmd.Connection.Close(); }
 
+            return lista;
+        }
+        // Resuelve CS1061 para AnularPedido
+        public void AnularPedido(int pedidoID)
+        {
+            SqlCommand cmd = null;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spAnularPedido", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@PedidoCompraID", pedidoID);
                 cn.Open();
                 cmd.ExecuteNonQuery();
             }
+            catch (Exception e)
+            {
+                throw new Exception("Error al ejecutar AnularPedido en la Capa de Datos: " + e.Message);
+            }
             finally
             {
-                if (cmd != null && cmd.Connection != null) cmd.Connection.Close();
+                if (cmd != null && cmd.Connection != null && cmd.Connection.State == ConnectionState.Open) cmd.Connection.Close();
             }
         }
 
-        // Listar pedidos para la bandeja de pedidos de compra
+        // -----------------------------------------------------
+        // MÉTODO LISTAR (Lectura) - COMPLETO
+        // -----------------------------------------------------
         public List<entPedidoCompra> Listar(int? pedidoID = null, int? reqcompraID = null,
-                                    int? proveedorID = null, DateTime? desde = null, DateTime? hasta = null)
+                                            int? proveedorID = null, string estado = null,
+                                            DateTime? desde = null, DateTime? hasta = null)
         {
             SqlCommand cmd = null;
             List<entPedidoCompra> lista = new List<entPedidoCompra>();
@@ -91,10 +113,16 @@ namespace CapaAccesoDatos
             try
             {
                 cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spListarPedidoCompra", cn); // Asumo que este SP fue modificado para hacer JOIN con Proveedor
+                cmd = new SqlCommand("spListarPedidoCompra", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                // ... (Parámetros de filtro - Correctos) ...
+                // Parámetros de filtro
+                cmd.Parameters.AddWithValue("@PedidoCompraID", pedidoID.HasValue ? (object)pedidoID.Value : DBNull.Value);
+                cmd.Parameters.AddWithValue("@ReqcompraID", reqcompraID.HasValue ? (object)reqcompraID.Value : DBNull.Value);
+                cmd.Parameters.AddWithValue("@ProveedorID", proveedorID.HasValue ? (object)proveedorID.Value : DBNull.Value);
+                cmd.Parameters.AddWithValue("@Estado", (object)estado ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@FechaDesde", (object)desde ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@FechaHasta", (object)hasta ?? DBNull.Value);
 
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -111,18 +139,15 @@ namespace CapaAccesoDatos
                         ProveedorID = Convert.ToInt32(dr["ProveedorID"]),
                         Observacion = dr["Observacion"].ToString(),
                         TotalItems = Convert.ToInt32(dr["TotalItems"]),
-
-                        // 🛑 MAPEO DEL ESTADO (Columna Faltante)
                         Estado = dr["Estado"].ToString(),
-
-                        // 🛑 MAPEO DEL NOMBRE DEL PROVEEDOR (Para mostrar en la bandeja)
-                        // Esto funciona si el SP devuelve "NombreProveedor" (o RazonSocial)
-                        // Si el SP no fue modificado para incluir el nombre, solo mostrará el ID o estará en blanco.
                         NombreProveedor = dr.IsDBNull(dr.GetOrdinal("NombreProveedor")) ? "" : dr["NombreProveedor"].ToString()
-
                     };
                     lista.Add(p);
                 }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al listar pedidos en la Capa de Datos: " + e.Message);
             }
             finally
             {
@@ -131,5 +156,7 @@ namespace CapaAccesoDatos
 
             return lista;
         }
+
+        // --- InsertarPedido y InsertarDetalle (Omitido aquí, pero debe estar completo en tu archivo) ---
     }
 }

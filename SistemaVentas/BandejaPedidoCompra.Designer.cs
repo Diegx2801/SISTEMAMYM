@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.grpFiltros = new System.Windows.Forms.GroupBox();
-            this.cboProveedor = new System.Windows.Forms.ComboBox();
+            this.cboProveedorFiltro = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cboEstadoFiltro = new System.Windows.Forms.ComboBox();
             this.lblEstado = new System.Windows.Forms.Label();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.txtNroPedido = new System.Windows.Forms.TextBox();
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -65,11 +65,11 @@
             // 
             // grpFiltros
             // 
-            this.grpFiltros.Controls.Add(this.cboProveedor);
+            this.grpFiltros.Controls.Add(this.cboProveedorFiltro);
             this.grpFiltros.Controls.Add(this.label4);
-            this.grpFiltros.Controls.Add(this.comboBox2);
+            this.grpFiltros.Controls.Add(this.cboEstadoFiltro);
             this.grpFiltros.Controls.Add(this.lblEstado);
-            this.grpFiltros.Controls.Add(this.txtBuscar);
+            this.grpFiltros.Controls.Add(this.txtNroPedido);
             this.grpFiltros.Controls.Add(this.dtpDesde);
             this.grpFiltros.Controls.Add(this.dtpHasta);
             this.grpFiltros.Controls.Add(this.btnBuscar);
@@ -85,13 +85,13 @@
             this.grpFiltros.TabStop = false;
             this.grpFiltros.Text = "Filtros de búsqueda";
             // 
-            // cboProveedor
+            // cboProveedorFiltro
             // 
-            this.cboProveedor.FormattingEnabled = true;
-            this.cboProveedor.Location = new System.Drawing.Point(166, 42);
-            this.cboProveedor.Name = "cboProveedor";
-            this.cboProveedor.Size = new System.Drawing.Size(121, 21);
-            this.cboProveedor.TabIndex = 22;
+            this.cboProveedorFiltro.FormattingEnabled = true;
+            this.cboProveedorFiltro.Location = new System.Drawing.Point(166, 42);
+            this.cboProveedorFiltro.Name = "cboProveedorFiltro";
+            this.cboProveedorFiltro.Size = new System.Drawing.Size(121, 21);
+            this.cboProveedorFiltro.TabIndex = 22;
             // 
             // label4
             // 
@@ -103,13 +103,13 @@
             this.label4.TabIndex = 21;
             this.label4.Text = "Proveedor:";
             // 
-            // comboBox2
+            // cboEstadoFiltro
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(315, 42);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 19;
+            this.cboEstadoFiltro.FormattingEnabled = true;
+            this.cboEstadoFiltro.Location = new System.Drawing.Point(315, 42);
+            this.cboEstadoFiltro.Name = "cboEstadoFiltro";
+            this.cboEstadoFiltro.Size = new System.Drawing.Size(121, 21);
+            this.cboEstadoFiltro.TabIndex = 19;
             // 
             // lblEstado
             // 
@@ -121,13 +121,13 @@
             this.lblEstado.TabIndex = 17;
             this.lblEstado.Text = "Estado:";
             // 
-            // txtBuscar
+            // txtNroPedido
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(17, 42);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(2);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(122, 20);
-            this.txtBuscar.TabIndex = 7;
+            this.txtNroPedido.Location = new System.Drawing.Point(17, 42);
+            this.txtNroPedido.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNroPedido.Name = "txtNroPedido";
+            this.txtNroPedido.Size = new System.Drawing.Size(122, 20);
+            this.txtNroPedido.TabIndex = 7;
             // 
             // dtpDesde
             // 
@@ -156,6 +156,7 @@
             this.btnBuscar.TabIndex = 9;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label2
             // 
@@ -223,17 +224,18 @@
             // 
             // btnValidarPedido
             // 
-            this.btnValidarPedido.Location = new System.Drawing.Point(16, 126);
+            this.btnValidarPedido.Location = new System.Drawing.Point(20, 124);
             this.btnValidarPedido.Margin = new System.Windows.Forms.Padding(2);
             this.btnValidarPedido.Name = "btnValidarPedido";
             this.btnValidarPedido.Size = new System.Drawing.Size(91, 39);
             this.btnValidarPedido.TabIndex = 26;
-            this.btnValidarPedido.Text = "Validar Pedido Compra";
+            this.btnValidarPedido.Text = "Aprobar pedido compra";
             this.btnValidarPedido.UseVisualStyleBackColor = true;
+            this.btnValidarPedido.Click += new System.EventHandler(this.btnAprobarPedidoCompra_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(16, 236);
+            this.button1.Location = new System.Drawing.Point(20, 230);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(91, 39);
@@ -243,7 +245,7 @@
             // 
             // btnFormaPago
             // 
-            this.btnFormaPago.Location = new System.Drawing.Point(16, 390);
+            this.btnFormaPago.Location = new System.Drawing.Point(20, 384);
             this.btnFormaPago.Margin = new System.Windows.Forms.Padding(2);
             this.btnFormaPago.Name = "btnFormaPago";
             this.btnFormaPago.Size = new System.Drawing.Size(91, 25);
@@ -253,7 +255,7 @@
             // 
             // btnProv
             // 
-            this.btnProv.Location = new System.Drawing.Point(16, 348);
+            this.btnProv.Location = new System.Drawing.Point(20, 342);
             this.btnProv.Margin = new System.Windows.Forms.Padding(2);
             this.btnProv.Name = "btnProv";
             this.btnProv.Size = new System.Drawing.Size(91, 25);
@@ -263,17 +265,18 @@
             // 
             // btnAnular
             // 
-            this.btnAnular.Location = new System.Drawing.Point(16, 182);
+            this.btnAnular.Location = new System.Drawing.Point(20, 176);
             this.btnAnular.Margin = new System.Windows.Forms.Padding(2);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(91, 39);
             this.btnAnular.TabIndex = 18;
             this.btnAnular.Text = "Anular";
             this.btnAnular.UseVisualStyleBackColor = true;
+            this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
             // 
             // btnInicio
             // 
-            this.btnInicio.Location = new System.Drawing.Point(33, 433);
+            this.btnInicio.Location = new System.Drawing.Point(37, 427);
             this.btnInicio.Margin = new System.Windows.Forms.Padding(2);
             this.btnInicio.Name = "btnInicio";
             this.btnInicio.Size = new System.Drawing.Size(56, 19);
@@ -283,7 +286,7 @@
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(16, 291);
+            this.btnCerrar.Location = new System.Drawing.Point(20, 285);
             this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(91, 38);
@@ -383,9 +386,9 @@
         #endregion
 
         private System.Windows.Forms.GroupBox grpFiltros;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cboEstadoFiltro;
         private System.Windows.Forms.Label lblEstado;
-        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.TextBox txtNroPedido;
         private System.Windows.Forms.DateTimePicker dtpDesde;
         private System.Windows.Forms.DateTimePicker dtpHasta;
         private System.Windows.Forms.Button btnBuscar;
@@ -401,7 +404,7 @@
         private System.Windows.Forms.Button btnInicio;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.DataGridView dgvPedidoCompra;
-        private System.Windows.Forms.ComboBox cboProveedor;
+        private System.Windows.Forms.ComboBox cboProveedorFiltro;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label5;

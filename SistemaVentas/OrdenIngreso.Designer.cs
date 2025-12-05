@@ -28,88 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvItems = new System.Windows.Forms.DataGridView();
-            this.idItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colObservacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvPedidosAprobados = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtTotalItems = new System.Windows.Forms.TextBox();
-            this.lblTotalItems = new System.Windows.Forms.Label();
-            this.txtOrdenIngreso = new System.Windows.Forms.TextBox();
+            this.txtNroOrdenIngreso = new System.Windows.Forms.TextBox();
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblOrdenIngreso = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblObservaciones = new System.Windows.Forms.Label();
             this.txtObservaciones = new System.Windows.Forms.TextBox();
-            this.dtpFechaIngreso = new System.Windows.Forms.DateTimePicker();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.gbdOrdenIngreso = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
+            this.Nrpedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Observacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtNroPedidoCompraSeleccionado = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPedidosAprobados)).BeginInit();
             this.gbdOrdenIngreso.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgvItems
+            // dgvPedidosAprobados
             // 
-            this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idItem,
-            this.Codigo,
-            this.colItem,
-            this.colUnidad,
-            this.colCantidad,
-            this.colObservacion});
-            this.dgvItems.Location = new System.Drawing.Point(76, 58);
-            this.dgvItems.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvItems.Name = "dgvItems";
-            this.dgvItems.RowHeadersWidth = 51;
-            this.dgvItems.RowTemplate.Height = 24;
-            this.dgvItems.Size = new System.Drawing.Size(624, 253);
-            this.dgvItems.TabIndex = 40;
-            // 
-            // idItem
-            // 
-            this.idItem.HeaderText = "ID";
-            this.idItem.MinimumWidth = 6;
-            this.idItem.Name = "idItem";
-            this.idItem.Width = 125;
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Código";
-            this.Codigo.MinimumWidth = 6;
-            this.Codigo.Name = "Codigo";
-            this.Codigo.Width = 125;
-            // 
-            // colItem
-            // 
-            this.colItem.HeaderText = "Material";
-            this.colItem.MinimumWidth = 6;
-            this.colItem.Name = "colItem";
-            this.colItem.Width = 125;
-            // 
-            // colUnidad
-            // 
-            this.colUnidad.HeaderText = "Unidad Medida";
-            this.colUnidad.MinimumWidth = 6;
-            this.colUnidad.Name = "colUnidad";
-            this.colUnidad.Width = 70;
-            // 
-            // colCantidad
-            // 
-            this.colCantidad.HeaderText = "Cantidad";
-            this.colCantidad.MinimumWidth = 6;
-            this.colCantidad.Name = "colCantidad";
-            this.colCantidad.Width = 70;
-            // 
-            // colObservacion
-            // 
-            this.colObservacion.HeaderText = "Observación";
-            this.colObservacion.MinimumWidth = 6;
-            this.colObservacion.Name = "colObservacion";
-            this.colObservacion.Width = 125;
+            this.dgvPedidosAprobados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPedidosAprobados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Nrpedido,
+            this.Fecha,
+            this.Proveedor,
+            this.Estado,
+            this.Observacion});
+            this.dgvPedidosAprobados.Location = new System.Drawing.Point(76, 58);
+            this.dgvPedidosAprobados.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvPedidosAprobados.Name = "dgvPedidosAprobados";
+            this.dgvPedidosAprobados.RowHeadersWidth = 51;
+            this.dgvPedidosAprobados.RowTemplate.Height = 24;
+            this.dgvPedidosAprobados.Size = new System.Drawing.Size(624, 253);
+            this.dgvPedidosAprobados.TabIndex = 40;
+            this.dgvPedidosAprobados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedidosAprobados_CellDoubleClick);
             // 
             // label1
             // 
@@ -122,35 +78,17 @@
             this.label1.TabIndex = 45;
             this.label1.Text = "Registrar Orden de Ingreso";
             // 
-            // txtTotalItems
+            // txtNroOrdenIngreso
             // 
-            this.txtTotalItems.Location = new System.Drawing.Point(140, 326);
-            this.txtTotalItems.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTotalItems.Name = "txtTotalItems";
-            this.txtTotalItems.Size = new System.Drawing.Size(73, 20);
-            this.txtTotalItems.TabIndex = 42;
-            // 
-            // lblTotalItems
-            // 
-            this.lblTotalItems.AutoSize = true;
-            this.lblTotalItems.Location = new System.Drawing.Point(74, 329);
-            this.lblTotalItems.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTotalItems.Name = "lblTotalItems";
-            this.lblTotalItems.Size = new System.Drawing.Size(65, 13);
-            this.lblTotalItems.TabIndex = 41;
-            this.lblTotalItems.Text = "Total Items :";
-            // 
-            // txtOrdenIngreso
-            // 
-            this.txtOrdenIngreso.Location = new System.Drawing.Point(122, 68);
-            this.txtOrdenIngreso.Name = "txtOrdenIngreso";
-            this.txtOrdenIngreso.Size = new System.Drawing.Size(199, 20);
-            this.txtOrdenIngreso.TabIndex = 14;
+            this.txtNroOrdenIngreso.Location = new System.Drawing.Point(134, 38);
+            this.txtNroOrdenIngreso.Name = "txtNroOrdenIngreso";
+            this.txtNroOrdenIngreso.Size = new System.Drawing.Size(199, 20);
+            this.txtNroOrdenIngreso.TabIndex = 14;
             // 
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(6, 104);
+            this.lblFecha.Location = new System.Drawing.Point(18, 74);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(40, 13);
             this.lblFecha.TabIndex = 10;
@@ -159,7 +97,7 @@
             // lblOrdenIngreso
             // 
             this.lblOrdenIngreso.AutoSize = true;
-            this.lblOrdenIngreso.Location = new System.Drawing.Point(6, 71);
+            this.lblOrdenIngreso.Location = new System.Drawing.Point(18, 41);
             this.lblOrdenIngreso.Name = "lblOrdenIngreso";
             this.lblOrdenIngreso.Size = new System.Drawing.Size(109, 13);
             this.lblOrdenIngreso.TabIndex = 9;
@@ -167,26 +105,28 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(522, 104);
+            this.btnCancelar.Location = new System.Drawing.Point(534, 74);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(522, 66);
+            this.btnAgregar.Location = new System.Drawing.Point(534, 36);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 5;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // lblObservaciones
             // 
             this.lblObservaciones.AutoSize = true;
-            this.lblObservaciones.Location = new System.Drawing.Point(7, 135);
+            this.lblObservaciones.Location = new System.Drawing.Point(19, 105);
             this.lblObservaciones.Name = "lblObservaciones";
             this.lblObservaciones.Size = new System.Drawing.Size(81, 13);
             this.lblObservaciones.TabIndex = 36;
@@ -194,49 +134,80 @@
             // 
             // txtObservaciones
             // 
-            this.txtObservaciones.Location = new System.Drawing.Point(121, 135);
+            this.txtObservaciones.Location = new System.Drawing.Point(133, 105);
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.Size = new System.Drawing.Size(199, 20);
             this.txtObservaciones.TabIndex = 37;
             // 
-            // dtpFechaIngreso
+            // dtpFecha
             // 
-            this.dtpFechaIngreso.Location = new System.Drawing.Point(121, 98);
-            this.dtpFechaIngreso.Name = "dtpFechaIngreso";
-            this.dtpFechaIngreso.Size = new System.Drawing.Size(200, 20);
-            this.dtpFechaIngreso.TabIndex = 38;
+            this.dtpFecha.Location = new System.Drawing.Point(133, 68);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(200, 20);
+            this.dtpFecha.TabIndex = 38;
             // 
             // gbdOrdenIngreso
             // 
-            this.gbdOrdenIngreso.Controls.Add(this.dtpFechaIngreso);
+            this.gbdOrdenIngreso.Controls.Add(this.dtpFecha);
             this.gbdOrdenIngreso.Controls.Add(this.txtObservaciones);
             this.gbdOrdenIngreso.Controls.Add(this.lblObservaciones);
             this.gbdOrdenIngreso.Controls.Add(this.btnAgregar);
             this.gbdOrdenIngreso.Controls.Add(this.btnCancelar);
             this.gbdOrdenIngreso.Controls.Add(this.lblOrdenIngreso);
             this.gbdOrdenIngreso.Controls.Add(this.lblFecha);
-            this.gbdOrdenIngreso.Controls.Add(this.txtOrdenIngreso);
+            this.gbdOrdenIngreso.Controls.Add(this.txtNroOrdenIngreso);
             this.gbdOrdenIngreso.Location = new System.Drawing.Point(67, 349);
             this.gbdOrdenIngreso.Name = "gbdOrdenIngreso";
-            this.gbdOrdenIngreso.Size = new System.Drawing.Size(633, 247);
+            this.gbdOrdenIngreso.Size = new System.Drawing.Size(633, 183);
             this.gbdOrdenIngreso.TabIndex = 43;
             this.gbdOrdenIngreso.TabStop = false;
             this.gbdOrdenIngreso.Text = "Datos Orden de Ingreso";
+            // 
+            // Nrpedido
+            // 
+            this.Nrpedido.HeaderText = "N° Pedido";
+            this.Nrpedido.Name = "Nrpedido";
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            // 
+            // Proveedor
+            // 
+            this.Proveedor.HeaderText = "Proveedor";
+            this.Proveedor.Name = "Proveedor";
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            // 
+            // Observacion
+            // 
+            this.Observacion.HeaderText = "Observación";
+            this.Observacion.Name = "Observacion";
+            // 
+            // txtNroPedidoCompraSeleccionado
+            // 
+            this.txtNroPedidoCompraSeleccionado.Location = new System.Drawing.Point(76, 323);
+            this.txtNroPedidoCompraSeleccionado.Name = "txtNroPedidoCompraSeleccionado";
+            this.txtNroPedidoCompraSeleccionado.Size = new System.Drawing.Size(73, 20);
+            this.txtNroPedidoCompraSeleccionado.TabIndex = 46;
             // 
             // OrdenIngreso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(767, 679);
+            this.ClientSize = new System.Drawing.Size(771, 552);
+            this.Controls.Add(this.txtNroPedidoCompraSeleccionado);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gbdOrdenIngreso);
-            this.Controls.Add(this.lblTotalItems);
-            this.Controls.Add(this.txtTotalItems);
-            this.Controls.Add(this.dgvItems);
+            this.Controls.Add(this.dgvPedidosAprobados);
             this.Name = "OrdenIngreso";
             this.Text = "OrdenIngreso";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPedidosAprobados)).EndInit();
             this.gbdOrdenIngreso.ResumeLayout(false);
             this.gbdOrdenIngreso.PerformLayout();
             this.ResumeLayout(false);
@@ -245,24 +216,22 @@
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dgvItems;
+        private System.Windows.Forms.DataGridView dgvPedidosAprobados;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtTotalItems;
-        private System.Windows.Forms.Label lblTotalItems;
-        private System.Windows.Forms.TextBox txtOrdenIngreso;
+        private System.Windows.Forms.TextBox txtNroOrdenIngreso;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblOrdenIngreso;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label lblObservaciones;
         private System.Windows.Forms.TextBox txtObservaciones;
-        private System.Windows.Forms.DateTimePicker dtpFechaIngreso;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.GroupBox gbdOrdenIngreso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colUnidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colObservacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nrpedido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Proveedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Observacion;
+        private System.Windows.Forms.TextBox txtNroPedidoCompraSeleccionado;
     }
 }

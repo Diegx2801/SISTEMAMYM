@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvRequerimientos = new System.Windows.Forms.DataGridView();
+            this.dgvOrdenes = new System.Windows.Forms.DataGridView();
             this.colNpedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -36,9 +36,7 @@
             this.grpFiltros = new System.Windows.Forms.GroupBox();
             this.cmbProveedor = new System.Windows.Forms.ComboBox();
             this.lblProveedor = new System.Windows.Forms.Label();
-            this.cmbEstado = new System.Windows.Forms.ComboBox();
-            this.lblEstado = new System.Windows.Forms.Label();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.txtNroPedido = new System.Windows.Forms.TextBox();
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -50,26 +48,27 @@
             this.btnImprimir = new System.Windows.Forms.Button();
             this.lblBandejaOrdenIngreso = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRequerimientos)).BeginInit();
+            this.button2 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).BeginInit();
             this.grpFiltros.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgvRequerimientos
+            // dgvOrdenes
             // 
-            this.dgvRequerimientos.AllowUserToDeleteRows = false;
-            this.dgvRequerimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRequerimientos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvOrdenes.AllowUserToDeleteRows = false;
+            this.dgvOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrdenes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colNpedido,
             this.colFecha,
             this.colProveedor,
             this.colEstado});
-            this.dgvRequerimientos.Location = new System.Drawing.Point(31, 170);
-            this.dgvRequerimientos.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvRequerimientos.Name = "dgvRequerimientos";
-            this.dgvRequerimientos.RowHeadersWidth = 51;
-            this.dgvRequerimientos.RowTemplate.Height = 24;
-            this.dgvRequerimientos.Size = new System.Drawing.Size(776, 380);
-            this.dgvRequerimientos.TabIndex = 45;
+            this.dgvOrdenes.Location = new System.Drawing.Point(31, 170);
+            this.dgvOrdenes.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvOrdenes.Name = "dgvOrdenes";
+            this.dgvOrdenes.RowHeadersWidth = 51;
+            this.dgvOrdenes.RowTemplate.Height = 24;
+            this.dgvOrdenes.Size = new System.Drawing.Size(776, 380);
+            this.dgvOrdenes.TabIndex = 45;
             // 
             // colNpedido
             // 
@@ -101,9 +100,7 @@
             // 
             this.grpFiltros.Controls.Add(this.cmbProveedor);
             this.grpFiltros.Controls.Add(this.lblProveedor);
-            this.grpFiltros.Controls.Add(this.cmbEstado);
-            this.grpFiltros.Controls.Add(this.lblEstado);
-            this.grpFiltros.Controls.Add(this.txtBuscar);
+            this.grpFiltros.Controls.Add(this.txtNroPedido);
             this.grpFiltros.Controls.Add(this.dtpDesde);
             this.grpFiltros.Controls.Add(this.dtpHasta);
             this.grpFiltros.Controls.Add(this.btnBuscar);
@@ -137,31 +134,13 @@
             this.lblProveedor.TabIndex = 21;
             this.lblProveedor.Text = "Proveedor:";
             // 
-            // cmbEstado
+            // txtNroPedido
             // 
-            this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(315, 42);
-            this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(121, 21);
-            this.cmbEstado.TabIndex = 19;
-            // 
-            // lblEstado
-            // 
-            this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(312, 26);
-            this.lblEstado.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(43, 13);
-            this.lblEstado.TabIndex = 17;
-            this.lblEstado.Text = "Estado:";
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Location = new System.Drawing.Point(17, 42);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(2);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(122, 20);
-            this.txtBuscar.TabIndex = 7;
+            this.txtNroPedido.Location = new System.Drawing.Point(17, 42);
+            this.txtNroPedido.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNroPedido.Name = "txtNroPedido";
+            this.txtNroPedido.Size = new System.Drawing.Size(122, 20);
+            this.txtNroPedido.TabIndex = 7;
             // 
             // dtpDesde
             // 
@@ -240,6 +219,7 @@
             this.btnCerrar.TabIndex = 48;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnImprimir
             // 
@@ -271,14 +251,27 @@
             this.button1.TabIndex = 51;
             this.button1.Text = "Anular";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnAnular_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(836, 195);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(91, 38);
+            this.button2.TabIndex = 52;
+            this.button2.Text = "Generar Orden Ingreso";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.btnGenerarOrdenIngreso_Click);
             // 
             // BandejaOrdenIngreso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(961, 574);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dgvRequerimientos);
+            this.Controls.Add(this.dgvOrdenes);
             this.Controls.Add(this.grpFiltros);
             this.Controls.Add(this.btnInicio);
             this.Controls.Add(this.btnCerrar);
@@ -286,7 +279,7 @@
             this.Controls.Add(this.lblBandejaOrdenIngreso);
             this.Name = "BandejaOrdenIngreso";
             this.Text = "BandejaOrdenIngreso";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRequerimientos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).EndInit();
             this.grpFiltros.ResumeLayout(false);
             this.grpFiltros.PerformLayout();
             this.ResumeLayout(false);
@@ -296,7 +289,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvRequerimientos;
+        private System.Windows.Forms.DataGridView dgvOrdenes;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNpedido;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProveedor;
@@ -304,9 +297,7 @@
         private System.Windows.Forms.GroupBox grpFiltros;
         private System.Windows.Forms.ComboBox cmbProveedor;
         private System.Windows.Forms.Label lblProveedor;
-        private System.Windows.Forms.ComboBox cmbEstado;
-        private System.Windows.Forms.Label lblEstado;
-        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.TextBox txtNroPedido;
         private System.Windows.Forms.DateTimePicker dtpDesde;
         private System.Windows.Forms.DateTimePicker dtpHasta;
         private System.Windows.Forms.Button btnBuscar;
@@ -318,5 +309,6 @@
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Label lblBandejaOrdenIngreso;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -15,7 +15,7 @@ namespace SistemaVentas
     public partial class PedidoCompra : Form
     {
         private int _reqcompraID;
-        private List<entDetPedidoCompra> _detalles;
+        public List<entDetPedidoCompra> _detalles;
         public PedidoCompra(int reqcompraID)
         {
             InitializeComponent();

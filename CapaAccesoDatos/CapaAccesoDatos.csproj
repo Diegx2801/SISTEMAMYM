@@ -52,6 +52,7 @@
     <Compile Include="datMarca.cs" />
     <Compile Include="datMaterial.cs" />
     <Compile Include="datObra.cs" />
+    <Compile Include="datOrdeningreso.cs" />
     <Compile Include="datOrdensalida.cs" />
     <Compile Include="datPedidoCompra.cs" />
     <Compile Include="datProveedor.cs" />
