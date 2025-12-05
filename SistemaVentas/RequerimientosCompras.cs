@@ -128,14 +128,14 @@ namespace SistemaVentas
             List<MaterialReq> materiales = datReqcompra.Instancia.ObtenerMaterialesPorRequerimiento(reqcompraID);
 
             // Crear una tabla para los detalles de los materiales
-            PdfPTable table = new PdfPTable(5);  // 5 columnas: ID, Material, Unidad, Cantidad, Observación
+            PdfPTable table = new PdfPTable(5);  
             table.AddCell("ID");
             table.AddCell("Material");
             table.AddCell("Unidad");
             table.AddCell("Cantidad");
             table.AddCell("Observación");
 
-            // Agregar los materiales del requerimiento en la tabla
+           
             foreach (var material in materiales)
             {
                 table.AddCell(material.MaterialID.ToString());
@@ -145,13 +145,13 @@ namespace SistemaVentas
                 table.AddCell(material.Observacion);
             }
 
-            // Agregar la tabla de detalles al documento
+            
             doc.Add(table);
 
-            // Cerrar el documento
+            
             doc.Close();
 
-            // Confirmar al usuario que el PDF ha sido generado
+           
             MessageBox.Show($"PDF del requerimiento {reqcompraID} exportado correctamente!");
         }
     }

@@ -28,7 +28,7 @@ namespace SistemaVentas
                 return;
             }
 
-            // Contar solo las filas reales
+          
             int itemNumber = dgvDetalle.Rows.Cast<DataGridViewRow>().Count(r => !r.IsNewRow) + 1;
 
             dgvDetalle.Rows.Add(
@@ -39,7 +39,7 @@ namespace SistemaVentas
                 txtObsItem.Text.Trim()
             );
 
-            // Actualizar el TextBox del total de ítems
+           
             txtTotalItems.Text = dgvDetalle.Rows.Cast<DataGridViewRow>().Count(r => !r.IsNewRow).ToString();
 
             txtNombreMaterial.Clear();
@@ -59,7 +59,7 @@ namespace SistemaVentas
 
             cboObra.SelectedIndex = -1;
         }
-        // Registrar requerimiento
+        
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             try

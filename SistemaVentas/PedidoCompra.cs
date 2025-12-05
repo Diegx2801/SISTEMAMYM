@@ -31,20 +31,20 @@ namespace SistemaVentas
             var listaFormasPago = logFormapago.Instancia.ListarFormapago();
 
             cboFormaPago.DataSource = listaFormasPago;
-            cboFormaPago.DisplayMember = "Descripcion"; // o cualquier campo relevante
-            cboFormaPago.ValueMember = "FormaPagoID";  // Valor que se usará internamente
+            cboFormaPago.DisplayMember = "Descripcion"; 
+            cboFormaPago.ValueMember = "FormaPagoID"; 
 
-            cboFormaPago.SelectedIndex = -1; // Deja el combo vacío para selección
+            cboFormaPago.SelectedIndex = -1; 
         }
         private void CargarComboProveedores()
         {
             var listaProveedores = logProveedor.Instancia.ListarProveedor();
 
             cboProveedor.DataSource = listaProveedores;
-            cboProveedor.DisplayMember = "RazonSocial"; // o el campo que consideres importante
-            cboProveedor.ValueMember = "ProveedorID";  // Valor que se usará internamente
+            cboProveedor.DisplayMember = "RazonSocial"; 
+            cboProveedor.ValueMember = "ProveedorID";  
 
-            cboProveedor.SelectedIndex = -1; // Deja el combo vacío para selección
+            cboProveedor.SelectedIndex = -1; 
         }
         private void PedidoCompra_Load(object sender, EventArgs e)
         {
@@ -68,7 +68,7 @@ namespace SistemaVentas
                             }).ToList();
 
             dgvDetalles.DataSource = _detalles;
-            txtTotalItems.Text = _detalles.Count.ToString(); // el textbox "Total Items"
+            txtTotalItems.Text = _detalles.Count.ToString(); 
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -88,7 +88,7 @@ namespace SistemaVentas
                 Observacion = txtObservaciones.Text.Trim()
             };
 
-            // Ahora solo pasamos los parámetros necesarios
+            
             bool ok = logPedidoCompra.Instancia.RegistrarPedido(pedido, _detalles);
 
             if (ok)

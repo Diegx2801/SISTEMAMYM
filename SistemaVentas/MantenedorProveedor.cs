@@ -69,15 +69,15 @@ namespace SistemaVentas
             {
                 DataGridViewRow fila = dgvProveedor.Rows[e.RowIndex];
 
-                // Ajusta índices según las columnas que muestres en el grid
-                txtProveedorID.Text = fila.Cells[0].Value.ToString();    // ProveedorID
-                txtRuc.Text = fila.Cells[1].Value.ToString();    // Ruc
-                txtRazonSocial.Text = fila.Cells[2].Value.ToString();    // RazonSocial
-                txtTelefono.Text = fila.Cells[3].Value.ToString();    // Telefono
-                txtCorreo.Text = fila.Cells[4].Value.ToString();    // Correo
-                txtDireccion.Text = fila.Cells[5].Value.ToString();    // Direccion
-                txtDescripcion.Text = fila.Cells[6].Value.ToString();    // Descripcion
-                chkEstadoProveedor.Checked = Convert.ToBoolean(fila.Cells[7].Value); // Estado
+                
+                txtProveedorID.Text = fila.Cells[0].Value.ToString();   
+                txtRuc.Text = fila.Cells[1].Value.ToString();    
+                txtRazonSocial.Text = fila.Cells[2].Value.ToString();    
+                txtTelefono.Text = fila.Cells[3].Value.ToString();    
+                txtCorreo.Text = fila.Cells[4].Value.ToString();   
+                txtDireccion.Text = fila.Cells[5].Value.ToString();    
+                txtDescripcion.Text = fila.Cells[6].Value.ToString();    
+                chkEstadoProveedor.Checked = Convert.ToBoolean(fila.Cells[7].Value); 
             }
         }
 

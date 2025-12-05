@@ -19,23 +19,23 @@ namespace SistemaVentas
         public OrdenSalida()
         {
             InitializeComponent();
-            InicializarFormulario(); // Usar un método de inicialización centralizado
+            InicializarFormulario();
         }
 
-        // Función centralizada para inicializar y resetear el formulario
+        
         private void InicializarFormulario()
         {
             dgvDetalles.DataSource = null;
-            listaDetalles.Clear(); // Asegurar que la lista temporal esté vacía
+            listaDetalles.Clear(); 
 
-            // 1. Cargar ComboBox de Obra (solo se hace una vez si los datos no cambian mucho)
+           
             CargarObras();
 
-            // 2. Configurar DataGridView y enlazar la lista vacía
-            ConfigurarDgvDetalles(); // Configura las columnas del DGV
+           
+            ConfigurarDgvDetalles(); 
             dgvDetalles.DataSource = listaDetalles;
 
-            // 3. Valores por defecto para Cabecera
+            
             dtpFecha.Value = DateTime.Now;
             chkEstado.Checked = false;
             txtObservaciones.Text = string.Empty;
@@ -45,7 +45,7 @@ namespace SistemaVentas
         {
             try
             {
-                // Se asume que tienes logObra y entObra implementados
+                
                 cboObra.DataSource = logObra.Instancia.ListarObra();
                 cboObra.DisplayMember = "Nombre";
                 cboObra.ValueMember = "ObraID";
@@ -58,13 +58,13 @@ namespace SistemaVentas
 
         private void ConfigurarDgvDetalles()
         {
-            // 1. Crear las columnas solo si no existen
+         
             if (dgvDetalles.Columns.Count == 0)
             {
-                dgvDetalles.AutoGenerateColumns = false; // Deshabilitar
+                dgvDetalles.AutoGenerateColumns = false; 
                 dgvDetalles.ReadOnly = true;
 
-                // Columna 1: ID (Oculta, necesaria para la lógica interna)
+                
                 dgvDetalles.Columns.Add(new DataGridViewTextBoxColumn()
                 {
                     DataPropertyName = "MaterialID",
@@ -72,28 +72,28 @@ namespace SistemaVentas
                     Visible = false
                 });
 
-                // Columna 2: Código (Visible)
+               
                 dgvDetalles.Columns.Add(new DataGridViewTextBoxColumn()
                 {
                     DataPropertyName = "CodigoMaterial",
                     HeaderText = "Código"
                 });
 
-                // Columna 3: Material (Visible)
+                
                 dgvDetalles.Columns.Add(new DataGridViewTextBoxColumn()
                 {
                     DataPropertyName = "NombreMaterial",
                     HeaderText = "Material"
                 });
 
-                // Columna 4: Unidad de Medida (Visible)
+               
                 dgvDetalles.Columns.Add(new DataGridViewTextBoxColumn()
                 {
                     DataPropertyName = "UnidadMedida",
                     HeaderText = "Unidad de Medida"
                 });
 
-                // Columna 5: Cantidad (Visible)
+               
                 dgvDetalles.Columns.Add(new DataGridViewTextBoxColumn()
                 {
                     DataPropertyName = "Cantidad",
@@ -101,17 +101,17 @@ namespace SistemaVentas
                 });
             }
 
-            // 2. Ajuste de auto-tamaño
+          
             dgvDetalles.AutoResizeColumns();
         }
 
         private void RefrescarDgvDetalles()
         {
-            // 1. Forzar la actualización del enlace
+           
             dgvDetalles.DataSource = null;
             dgvDetalles.DataSource = listaDetalles;
 
-            // 2. Configurar las columnas (si ya existen, solo aplica el ajuste de tamaño)
+            
             ConfigurarDgvDetalles();
         }
 
@@ -121,12 +121,10 @@ namespace SistemaVentas
             txtCantidad.Text = string.Empty;
         }
 
-        // ==============================================================================
-        // Lógica de Detalle: Botón AGREGAR
-        // ==============================================================================
+        
         private void btnAgregarDetalle_Click(object sender, EventArgs e)
         {
-            // Lógica interna idéntica a la que proporcionaste, solo cambiamos el refresco
+            
             if (string.IsNullOrWhiteSpace(txtCodigoMaterial.Text) || string.IsNullOrWhiteSpace(txtCantidad.Text))
             {
                 MessageBox.Show("Debe ingresar el Código y la Cantidad.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -155,7 +153,7 @@ namespace SistemaVentas
 
                 listaDetalles.Add(nuevoDetalle);
 
-                // Usamos la función de refresco
+                
                 RefrescarDgvDetalles();
                 LimpiarDetalle();
             }
@@ -165,12 +163,10 @@ namespace SistemaVentas
             }
         }
 
-        // ==============================================================================
-        // Lógica de Registro: Botón AÑADIR ORDEN DE SALIDA
-        // ==============================================================================
+       
         private void btnAnadirOrdenSalida_Click(object sender, EventArgs e)
         {
-            // 1. Validar Número de Orden (Campo Obligatorio)
+      
             if (string.IsNullOrWhiteSpace(txtNroOrdenSalida.Text))
             {
                 MessageBox.Show("Debe ingresar el Número de Orden de Salida.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -178,7 +174,7 @@ namespace SistemaVentas
                 return;
             }
 
-            // 2. Validar Obra (Campo Obligatorio)
+            
             if (cboObra.SelectedValue == null || (int)cboObra.SelectedValue == 0)
             {
                 MessageBox.Show("Debe seleccionar la Obra de destino.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -213,7 +209,7 @@ namespace SistemaVentas
 
                 MessageBox.Show($"Orden de Salida N° {os.Numero} (ID: {nuevoId}) registrada con éxito.", "Registro Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // CORRECCIÓN CLAVE: Usar la función de inicialización para reiniciar
+                
                 InicializarFormulario();
             }
             catch (Exception ex)

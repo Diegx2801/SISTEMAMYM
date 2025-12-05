@@ -63,7 +63,7 @@ namespace SistemaVentas
             DateTime? desde = dtpDesde.Checked ? dtpDesde.Value.Date : (DateTime?)null;
             DateTime? hasta = dtpHasta.Checked ? dtpHasta.Value.Date : (DateTime?)null;
 
-            // 🔴 CLAVE: solo traemos los requerimientos que ya están ENVIADOS por Almacén
+            
             var lista = logReqcompra.Instancia.Listar(nroReq, obraId, "ENVIADO", desde, hasta);
 
             dgvRequerimientosCompras.DataSource = lista;
@@ -85,7 +85,7 @@ namespace SistemaVentas
             {
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
-                    // aquí, si quieres, puedes volver a cargar la bandeja
+                  
                     CargarBandeja();
                 }
             }

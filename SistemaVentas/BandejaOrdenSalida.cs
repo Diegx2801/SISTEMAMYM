@@ -18,7 +18,7 @@ namespace SistemaVentas
         {
             InitializeComponent();
             CargarCombos();
-            // Mostrar solo la fecha en los DateTimePickers
+            
             dtpDesde.Format = DateTimePickerFormat.Short;
             dtpHasta.Format = DateTimePickerFormat.Short;
 
@@ -28,20 +28,20 @@ namespace SistemaVentas
 
         private void CargarCombos()
         {
-            // Cargar el ComboBox de Obra (filtro)
-            // Necesitas la clase logObra y entObra, siguiendo el patrón de MantenedorMaterial.
+            
+            
             try
             {
-                // Se asume que tienes logObra y entObra implementados:
+                
                 List<entObra> listaObras = logObra.Instancia.ListarObra();
 
-                // Añadir una opción para "Todas las Obras" (opcional pero útil)
+                
                 listaObras.Insert(0, new entObra { ObraID = 0, Nombre = "--- Todas ---" });
 
                 cboObraFiltro.DataSource = listaObras;
                 cboObraFiltro.DisplayMember = "Nombre";
                 cboObraFiltro.ValueMember = "ObraID";
-                cboObraFiltro.SelectedValue = 0; // Seleccionar "Todas" por defecto
+                cboObraFiltro.SelectedValue = 0; 
             }
             catch (Exception ex)
             {
@@ -53,7 +53,7 @@ namespace SistemaVentas
         {
             try
             {
-                // 1. Obtener filtros y llamar a la Capa Lógica (sin cambios)
+                
                 string num = txtNroPedido.Text.Trim();
                 int obraIdSeleccionada = (int)cboObraFiltro.SelectedValue;
                 int? obraId = (obraIdSeleccionada > 0) ? obraIdSeleccionada : (int?)null;
@@ -62,16 +62,14 @@ namespace SistemaVentas
 
                 List<entOrdensalida> lista = logOrdensalida.Instancia.ListarOrdensalida(num, obraId, desde, hasta);
 
-                // 2. CONFIGURACIÓN MANUAL DE COLUMNAS
+                
                 if (dgvOrdenes.Columns.Count == 0)
                 {
-                    dgvOrdenes.AutoGenerateColumns = false; // Deshabilitar la generación automática
+                    dgvOrdenes.AutoGenerateColumns = false; 
 
-                    // -----------------------------------------------------
-                    // >> INICIO DE LA CREACIÓN MANUAL DE COLUMNAS <<
-                    // -----------------------------------------------------
+                  
 
-                    // Columna 1: N° Pedido (Visible)
+                   
                     dgvOrdenes.Columns.Add(new DataGridViewTextBoxColumn()
                     {
                         DataPropertyName = "Numero",
@@ -79,24 +77,24 @@ namespace SistemaVentas
                         Name = "Numero"
                     });
 
-                    // Columna 2: Obra (Visible)
+                    
                     dgvOrdenes.Columns.Add(new DataGridViewTextBoxColumn()
                     {
-                        DataPropertyName = "NombreObra", // Propiedad que trae el nombre de la obra
+                        DataPropertyName = "NombreObra", 
                         HeaderText = "Obra",
                         Name = "NombreObra"
                     });
 
-                    // Columna 3: Fecha (Visible y Formateada)
+                    
                     dgvOrdenes.Columns.Add(new DataGridViewTextBoxColumn()
                     {
                         DataPropertyName = "Fecha",
                         HeaderText = "Fecha",
                         Name = "Fecha",
-                        DefaultCellStyle = { Format = "dd/MM/yyyy" } // Formato de fecha
+                        DefaultCellStyle = { Format = "dd/MM/yyyy" } 
                     });
 
-                    // Columna 4: Estado (Visible)
+                    
                     dgvOrdenes.Columns.Add(new DataGridViewTextBoxColumn()
                     {
                         DataPropertyName = "Estado",
@@ -104,24 +102,22 @@ namespace SistemaVentas
                         Name = "Estado"
                     });
 
-                    // Columna 5: OrdensalidaID (Oculta, necesaria para Anular)
+                    
                     dgvOrdenes.Columns.Add(new DataGridViewTextBoxColumn()
                     {
                         DataPropertyName = "OrdensalidaID",
                         HeaderText = "ID",
                         Name = "OrdensalidaID",
-                        Visible = false // Ocultar
+                        Visible = false 
                     });
 
-                    // -----------------------------------------------------
-                    // >> FIN DE LA CREACIÓN MANUAL DE COLUMNAS <<
-                    // -----------------------------------------------------
+                  
                 }
 
-                // 3. Asignar el origen de datos
+                
                 dgvOrdenes.DataSource = lista;
 
-                // 4. Ajuste de auto-tamaño y control de mensaje (sin cambios)
+               
                 if (lista.Count > 0)
                 {
                     dgvOrdenes.AutoResizeColumns();
@@ -139,10 +135,10 @@ namespace SistemaVentas
             }
         }
 
-        // --- Evento btnBuscar_Click (LLAMA CON MOSTRARMENSAJE = TRUE) ---
+        
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            // Llama a ListarBandeja y permite que muestre el mensaje si está vacío
+            
             ListarBandeja(true);
         }
 
@@ -156,7 +152,7 @@ namespace SistemaVentas
 
             try
             {
-                // Obtener el objeto entOrdensalida de la fila seleccionada
+                
                 entOrdensalida osSeleccionada = (entOrdensalida)dgvOrdenes.SelectedRows[0].DataBoundItem;
 
                 if (osSeleccionada.Estado == "Anulado")
@@ -169,11 +165,11 @@ namespace SistemaVentas
 
                 if (MessageBox.Show(mensaje, "Confirmar Anulación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    // Llamar a la Capa Lógica para realizar la transacción de anulación y reversión de stock
+                    
                     logOrdensalida.Instancia.AnularOrdensalida(osSeleccionada);
 
                     MessageBox.Show("Orden de Salida anulada con éxito y stock revertido.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ListarBandeja(); // Refrescar la bandeja para ver el nuevo estado
+                    ListarBandeja(); 
                 }
             }
             catch (Exception ex)
@@ -184,11 +180,11 @@ namespace SistemaVentas
 
         private void btnRegistrarOrdenSalida_Click(object sender, EventArgs e)
         {
-            // Asumiendo que el formulario de registro se llama RegistrarOrdenSalida
+            
             OrdenSalida frm = new OrdenSalida();
             frm.ShowDialog();
 
-            // Refrescar la bandeja después de cerrar el formulario de registro
+            
             ListarBandeja(false);
         }
 

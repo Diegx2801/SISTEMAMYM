@@ -87,7 +87,7 @@ namespace SistemaVentas
         {
             if (e.RowIndex >= 0)
             {
-                // como el DataSource es List<entMaterial>, puedes castear directo
+                
                 entMaterial m = (entMaterial)dgvMaterial.Rows[e.RowIndex].DataBoundItem;
 
                 txtMaterialID.Text   = m.MaterialID.ToString();
@@ -197,7 +197,7 @@ namespace SistemaVentas
         private void btnAgregarMarca_Click(object sender, EventArgs e)
         {
             new MantenedorMarca().ShowDialog();
-            // recargar combo después de agregar
+            
             CargarCombos();
         }
 

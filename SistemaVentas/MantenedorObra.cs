@@ -66,8 +66,8 @@ namespace SistemaVentas
             {
                 DataGridViewRow filaActual = dgvObra.Rows[e.RowIndex];
 
-                // Asumiendo columnas: 0=Codigo, 1=Nombre, 2=Direccion, 3=Estado
-                txtObraID.Text = filaActual.Cells[0].Value.ToString(); // si incluyes la columna ID en el grid
+                
+                txtObraID.Text = filaActual.Cells[0].Value.ToString(); 
                 txtCodigo.Text = filaActual.Cells[1].Value.ToString();
                 txtNombre.Text = filaActual.Cells[2].Value.ToString();
                 txtDireccion.Text = filaActual.Cells[3].Value.ToString();
