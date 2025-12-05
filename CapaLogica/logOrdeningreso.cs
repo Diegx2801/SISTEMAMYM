@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 namespace CapaLogica
 {
-    // Resuelve el error CS0103 al crear la clase.
     public class logOrdeningreso
     {
         #region singleton
@@ -14,19 +13,22 @@ namespace CapaLogica
         #endregion
 
         // Método para listar órdenes de ingreso (para la bandeja)
-        public List<entOrdeningreso> Listar(int? oiId, string numero, DateTime? desde, DateTime? hasta)
+        // Firma con 5 argumentos (oiId, numero, proveedorID, desde, hasta)
+        public List<entOrdeningreso> Listar(int? oiId, string numero,
+                                            int? proveedorID = null,
+                                            DateTime? desde = null, DateTime? hasta = null)
         {
-            return datOrdeningreso.Instancia.Listar(oiId, numero, desde, hasta);
+            return datOrdeningreso.Instancia.Listar(oiId, numero, proveedorID, desde, hasta);
         }
 
-        // Método para listar pedidos aprobados (para el DGV del formulario de registro)
-        // Llama al método recién creado en datPedidoCompra (Resuelve CS1061)
+        // Método para listar pedidos aprobados (para el DGV de selección)
         public List<entPedidoCompra> ListarPedidosAprobados()
         {
+            // Llama al método que debe existir en datPedidoCompra.cs
             return datPedidoCompra.Instancia.ListarPedidosAprobados();
         }
 
-        // Método transaccional para registrar la orden de ingreso
+        // Método transaccional para registrar la orden de ingreso (Cabecera + Detalles + Stock)
         public int RegistrarOrdenIngreso(entOrdeningreso oi)
         {
             if (string.IsNullOrWhiteSpace(oi.Numero))

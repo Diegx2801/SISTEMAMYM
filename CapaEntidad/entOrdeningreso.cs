@@ -12,8 +12,8 @@ namespace CapaEntidad
         public string Numero { get; set; }
 
         public int PedcompraID { get; set; }
-        public string NroPedido { get; set; } // Para la bandeja
-        public string NombreProveedor { get; set; } // Para la bandeja
+        public string NroPedido { get; set; } // Viene del JOIN
+        public string NombreProveedor { get; set; } // Viene del JOIN
 
         public DateTime Fecha { get; set; }
         public string Observacion { get; set; }

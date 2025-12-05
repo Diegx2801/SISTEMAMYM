@@ -14,8 +14,10 @@ namespace CapaAccesoDatos
         public static datOrdeningreso Instancia => _instancia;
         #endregion
 
-        // Método para listar Órdenes de Ingreso (para la bandeja)
-        public List<entOrdeningreso> Listar(int? oiId, string numero, DateTime? desde, DateTime? hasta)
+        // Método para listar Órdenes de Ingreso (Acepta ProveedorID, SIN Estado)
+        public List<entOrdeningreso> Listar(int? oiId, string numero,
+                                            int? proveedorID = null,
+                                            DateTime? desde = null, DateTime? hasta = null)
         {
             SqlCommand cmd = null;
             List<entOrdeningreso> lista = new List<entOrdeningreso>();
@@ -24,13 +26,13 @@ namespace CapaAccesoDatos
             try
             {
                 cn = Conexion.Instancia.Conectar();
-                // Asumo que tienes un SP llamado spListarOrdeningreso
                 cmd = new SqlCommand("spListarOrdeningreso", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 // Parámetros de filtro
                 cmd.Parameters.AddWithValue("@OrdeningresoID", (object)oiId ?? DBNull.Value);
                 cmd.Parameters.AddWithValue("@Numero", (object)numero ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@ProveedorID", (object)proveedorID ?? DBNull.Value); // Filtro Proveedor
                 cmd.Parameters.AddWithValue("@FechaDesde", (object)desde ?? DBNull.Value);
                 cmd.Parameters.AddWithValue("@FechaHasta", (object)hasta ?? DBNull.Value);
 
@@ -43,9 +45,10 @@ namespace CapaAccesoDatos
                     {
                         OrdeningresoID = Convert.ToInt32(dr["OrdeningresoID"]),
                         Numero = dr["Numero"].ToString(),
+                        // Asumo que el SP retorna PedcompraID, NroPedido, NombreProveedor
                         PedcompraID = Convert.ToInt32(dr["PedcompraID"]),
-                        NombreProveedor = dr["NombreProveedor"].ToString(), // Asumiendo que el SP hace JOIN
-                        NroPedido = dr["NroPedido"].ToString(),             // Asumiendo que el SP trae el NroPedido
+                        NombreProveedor = dr["NombreProveedor"].ToString(),
+                        NroPedido = dr["NroPedido"].ToString(),
                         Fecha = Convert.ToDateTime(dr["Fecha"]),
                         Observacion = dr["Observacion"].ToString(),
                         Estado = dr["Estado"].ToString()
@@ -68,7 +71,6 @@ namespace CapaAccesoDatos
             try
             {
                 cn = Conexion.Instancia.Conectar();
-                // Llama al SP transaccional que actualiza stock
                 cmd = new SqlCommand("spRegistrarOrdenIngreso_y_ActualizarStock", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 

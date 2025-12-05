@@ -34,7 +34,7 @@
             this.colProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpFiltros = new System.Windows.Forms.GroupBox();
-            this.cmbProveedor = new System.Windows.Forms.ComboBox();
+            this.cboProveedorFiltro = new System.Windows.Forms.ComboBox();
             this.lblProveedor = new System.Windows.Forms.Label();
             this.txtNroPedido = new System.Windows.Forms.TextBox();
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
@@ -98,7 +98,7 @@
             // 
             // grpFiltros
             // 
-            this.grpFiltros.Controls.Add(this.cmbProveedor);
+            this.grpFiltros.Controls.Add(this.cboProveedorFiltro);
             this.grpFiltros.Controls.Add(this.lblProveedor);
             this.grpFiltros.Controls.Add(this.txtNroPedido);
             this.grpFiltros.Controls.Add(this.dtpDesde);
@@ -116,13 +116,13 @@
             this.grpFiltros.TabStop = false;
             this.grpFiltros.Text = "Filtros de búsqueda";
             // 
-            // cmbProveedor
+            // cboProveedorFiltro
             // 
-            this.cmbProveedor.FormattingEnabled = true;
-            this.cmbProveedor.Location = new System.Drawing.Point(166, 42);
-            this.cmbProveedor.Name = "cmbProveedor";
-            this.cmbProveedor.Size = new System.Drawing.Size(121, 21);
-            this.cmbProveedor.TabIndex = 22;
+            this.cboProveedorFiltro.FormattingEnabled = true;
+            this.cboProveedorFiltro.Location = new System.Drawing.Point(166, 42);
+            this.cboProveedorFiltro.Name = "cboProveedorFiltro";
+            this.cboProveedorFiltro.Size = new System.Drawing.Size(121, 21);
+            this.cboProveedorFiltro.TabIndex = 22;
             // 
             // lblProveedor
             // 
@@ -169,6 +169,7 @@
             this.btnBuscar.TabIndex = 9;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // lblHasta
             // 
@@ -295,7 +296,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colProveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
         private System.Windows.Forms.GroupBox grpFiltros;
-        private System.Windows.Forms.ComboBox cmbProveedor;
+        private System.Windows.Forms.ComboBox cboProveedorFiltro;
         private System.Windows.Forms.Label lblProveedor;
         private System.Windows.Forms.TextBox txtNroPedido;
         private System.Windows.Forms.DateTimePicker dtpDesde;
